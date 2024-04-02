@@ -2,8 +2,8 @@
 import React from "react";
 import FetchOeuvreByCategorie from "../component/fetchOuvreByCategorie";
 const Digital: React.FC = () => {
-    const text="text de digital"
-    const presentation="text presentation digital"
+    const presentation="Presentation digital"
+    const text="L'artiste digital manie Krita avec habileté, fusionnant couleur et émotion pour créer des œuvres captivantes. Chaque coup de pinceau virtuel donne vie à ses idées, transformant l'écran en un univers artistique vibrant et saisissant."
     
     
    

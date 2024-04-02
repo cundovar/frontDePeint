@@ -57,25 +57,31 @@ const params=useParams<{id:string}>()
   }, [params.id]);
 console.log('dataa',categoryName)
   return (
-    <section>
-<div className="border w-4/12 h-1/2 flex absolute z-40  ">
+    <section className=" max-sm:flex-col-reverse max-sm:flex max-sm:mt-56">
+   
+      {post && (
+        <>
+<div className="border w-4/12 h-1/2 flex max-sm:flex-col absolute max-sm:w-full z-40  ">
     <div className="w-1/2"></div>
-    <div className="w-1/2 flex item-center justify-center h-full border ">
-        <div className=" m-auto space-y-8">
+    <div className="w-1/2 flex item-center justify-end  h-full  ">
+        <div className="  lg:space-y-8 max-sm:hidden flex flex-col items-end justify-end">
 
-        <div className="h-20 w-20 border bg-red-700"></div>
-        <div className="h-20 w-20 border bg-red-700"></div>
+        <div className="h-16 w-16  overflow-hidden  bg-red-700"> 
+            <img className="object-cover" src={`http://localhost:8020/images/oeuvre/${post.image}`} alt="img-id"/>
+        </div>
+        <div className="h-16 w-16 border ">
+
+        <img className="object-cover" src="../images/logo/canape.webp" alt="logo-canape"/>
+        </div>
 
         </div>
 
 
     </div>
 </div>
-   
-      {post && (
-        <>
-     <div className="w-4/12 h-1/2 absolute  flex items-center-amber-600 bottom-0 left-0 border" >
-       <div className="w-10/12 m-auto h-5/6 p-10 border">
+     <div className="w-4/12 h-1/2 max-sm:w-full  absolute max-sm:relative   flex items-center-amber-600 bottom-0 left-0 border " >
+       <div className="w-10/12 m-auto h-5/6 p-10 border max-sm:w-full ">
+
        
        
   
@@ -85,6 +91,7 @@ console.log('dataa',categoryName)
 <Encadrement name="titre" url={post.name} isloading={isLoading} />
 <Encadrement name="catégorie" url={ categoryName} isloading={isLoading} />
 <Encadrement name="thème" url={themeName} isloading={isLoading} />
+
     
         
            {post.description ? (
@@ -99,7 +106,7 @@ console.log('dataa',categoryName)
           {/* <p style={{ paddingTop: '10px' }}>theme :{post.theme}</p> */}
               </div>
        </div>
-      <div className="w-8/12 h-full flex items-center justify-center absolute max-h-full right-0 border">
+      <div className="w-8/12 h-full flex max-sm:w-full items-center justify-center absolute max-h-full right-0 border max-sm:relative ">
         <article className= "h-full">
           <div className="h-full p-5 w-11/12 m-auto ">
             {isLoading ? (
