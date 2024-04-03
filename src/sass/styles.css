@@ -1,8 +1,8 @@
 @import url("./acceuil/left.scss");
 @import url("./responsive.scss");
 body {
-  background-color: black;
-  color: white;
+  background-color: rgb(18, 18, 18);
+  color: rgb(188, 203, 208);
 }
 
 @media screen and (min-width: 481px) {
