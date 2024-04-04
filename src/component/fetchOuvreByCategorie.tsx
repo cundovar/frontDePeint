@@ -18,6 +18,7 @@ interface Props {
 }
 
 const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentation,text }) => {
+
   const { articles, isLoading } = FetchArticles(UrlPeintureDigital, categorieUrl);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]); 
   const handleCategoryChange = (category: string) => {

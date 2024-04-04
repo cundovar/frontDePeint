@@ -70,7 +70,7 @@ const handleClickImage=(imageUrl:string)=>{
 <div className="borde w-4/12 h-1/2 flex max-sm:flex-col absolute max-sm:w-full z-40  ">
     <div className="w-1/2"></div>
     <div className="w-1/2 flex item-center justify-end  h-full  ">
-        <div className="    lg:space-y-8 max-sm:hidden flex flex-col items-end justify-end">
+        <div className="    lg:space-y-8 max-md:hidden flex flex-col items-end justify-end">
 <div className="borde space-y-3 ">
         <div className="h-16 w-16 image overflow-hidden cursor-pointer "
               onClick={() =>
@@ -125,9 +125,9 @@ const handleClickImage=(imageUrl:string)=>{
           {/* <p style={{ paddingTop: '10px' }}>theme :{post.theme}</p> */}
               </div>
        </div>
-      <div className="w-8/12 h-full flex max-sm:w-full items-center justify-center absolute max-h-full right-0 borde max-sm:relative ">
+      <div className="w-8/12  h-full flex max-sm:w-full items-center justify-center absolute max-h-full right-0 borde max-sm:relative ">
         <article className= "h-full">
-          <div className="h-full p-5 w-11/12 m-auto border relative max-lg:flex max-lg:items-center  ">
+          <div className="h-full p-5 w-11/12 m-auto  relative max-lg:flex max-lg:items-center  ">
             {isLoading ? (
                  <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={500} height={600} />
             ):(
@@ -135,7 +135,7 @@ const handleClickImage=(imageUrl:string)=>{
                 
                 {selectedImage === "../images/large.jpg" &&(
 
-                    <div className="absolute md:top-80 top md:right-48 xl:top-20 xl:right-96 bg-black xl:w-52 md:w-36    ">
+                    <div className="absolute md:top-80 top md:right-48 lg:top-9 xl:top-20 xl:right-96 bg-black xl:w-52 md:w-36    ">
                            <img className=" shadow-2xl shadow-black sha" src= {`${URLimage}/${post.image}`}/>
                     </div>
             
