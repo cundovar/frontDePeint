@@ -12,9 +12,9 @@ const  RoutesPage=()=>{
 
 
     return(
-        <div className="w-full h-dvh flex flex-col  ">
+        <div className="w-full h-dvh flex flex-col max-md:p-3  ">
         <Router>
-  <div><h1 className="text-4xl">Nathan V Art</h1></div>
+  <div><h1 className="text-4xl  bg-gradient-to-r from-cyan-600 ">Nathan V Art</h1></div>
       <div className=" max-lg:ml-1 xl:ml-0 total_total h-full w-full 2xl:h-5/6  relative 2xl:border-red-600 m-auto 2xl:w-11/12 lg:overflow-hidden " >
         <Header/>
       <div className="  max-w-full z-40 m-auto md:overflow-hidden">
