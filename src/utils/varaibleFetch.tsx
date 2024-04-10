@@ -5,6 +5,8 @@ export const UrlPeintureDigital="https://bac.varascundo.com/api/oeuvres"
 export const UrlCategorie=`${urlBase}categorie `
 
 export const UrlTheme=`${urlBase}/themes `
-
 export const URLimage='https://bac.varascundo.com/images/oeuvre'
 export const URLOeuvreId=`https://bac.varascundo.com/api/oeuvres`
+export const URLPageAccueil=`http://localhost:8020/api/page_accueils`
+
+export const URLImageAccueil='http://localhost:8020/images/Accueil/'
