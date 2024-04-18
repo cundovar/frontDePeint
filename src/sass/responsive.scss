@@ -1,16 +1,11 @@
 
-*{
-    border: 1px solid red;
-}
+
 @media screen and (max-width: 480px) {
     .total{
         flex-direction: column;
     }
     .text_left,.text_right,.left{
 width: 100%;
-    }
-    .text_left{
-      
     }
     .text_left_div{
         padding: 0.2rem;

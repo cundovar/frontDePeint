@@ -9,6 +9,12 @@ import { URLOeuvreId, URLimage } from "../utils/varaibleFetch";
 import Modal from "../component/oeuvreid/modal";
 import ModalCanape from "../component/oeuvreid/canapemodal";
 
+
+import { useRef } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 interface Post {
   name: string;
   description: string;
@@ -20,6 +26,16 @@ interface Post {
 
 
 const ArticleDetailPage: React.FC = () => {
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+
+
   const [post, setPost] = useState<Post | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryName, setCategoryName] = useState<string>("");
@@ -74,15 +90,15 @@ const ArticleDetailPage: React.FC = () => {
   };
 
 
-  const ImgCanape = (url:any) => (
-    <>
-      {selectedImage === "../images/large.jpg" && (
-        <div className="absolute md:top-80 top md:right-48 lg:top-9 xl:top-20 xl:right-96 bg-black xl:w-52 md:w-36">
-          <img className="shadow-2xl shadow-black sha" src= {url} />
-        </div>
-      )}
-    </>
-  );
+  // const ImgCanape = (url:any) => (
+  //   <>
+  //     {selectedImage === "../images/large.jpg" && (
+  //       <div className="absolute md:top-80 top md:right-48 lg:top-9 xl:top-20 xl:right-96 bg-black xl:w-52 md:w-36">
+  //         <img className="shadow-2xl shadow-black sha" src= {url} />
+  //       </div>
+  //     )}
+  //   </>
+  // );
 
   useEffect(() => {
     const postId = Number(params.id);
@@ -96,12 +112,12 @@ const ArticleDetailPage: React.FC = () => {
     setSelectedImage(imageUrl)
   }
   return (
-    <section className=" max-sm:flex-col-reverse max-sm:flex max-sm:mt-56  ">
+    <section className=" max-sm:flex-col-reverse max-sm:flex max-sm:mt-56 borde ">
 
       {post && (
         <>
 
-          <div className="borde w-4/12 h-1/2 flex max-sm:flex-col absolute max-sm:w-full z-40  ">
+          <div className="borde w-4/12 h-1/2 flex max-sm:flex-col absolute max-sm:w-full z-40   ">
             <h3 className="text-4xl flex justify-start font-title max-sm:text-2xl max-md:visible hidden  max-lg:text-4xl ">{post.name} </h3>
             <div className="w-1/2"> </div>
             <div className="w-1/2 flex items-center justify-center   ">
@@ -111,20 +127,13 @@ const ArticleDetailPage: React.FC = () => {
 
             </div>
           </div>
-          <div className="w-4/12 h-1/2 max-sm:w-full  absolute max-sm:relative   flex items-start bottom-0 left-0 borde " >
-            <div className="2xl:w-10/12 m-auto h-full  borde max-sm:w-full ">
-
-
-
-
-
+          <div className="w-4/12 h-1/2 max-sm:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-sm:relative   flex items-start bottom-0 left-0 borde " >
+            <div className="2xl:w-10/12 m-auto h-full   borde max-sm:w-full ">
 
 
               <Encadrement name="titre" url={post.name} isloading={isLoading} />
               <Encadrement name="catégorie" url={categoryName} isloading={isLoading} />
               <Encadrement name="thème" url={themeName} isloading={isLoading} />
-
-
 
               {post.description ? (
 
@@ -140,7 +149,7 @@ const ArticleDetailPage: React.FC = () => {
           </div>
 
 
-          <div className="w-8/12 h-full flex max-sm:w-full items-center justify-center  absolute max-h-full right-0 borde max-sm:relative ">
+          <div className="w-8/12 h-full flex max-sm:w-full items-center justify-center borde   absolute max-h-full right-0 borde max-sm:relative ">
             <div className="borde space-y-3 max-md:hidden">
               <div className="h-16 w-16 image overflow-hidden cursor-pointer "
                 onClick={() =>
@@ -162,36 +171,43 @@ const ArticleDetailPage: React.FC = () => {
               </div>
 
             </div>
-            <article className="h-full overflow-y-scroll ">
+        <div className="flex max-xl:flex-col overflow-y-scroll">
 
-              <div className="h-full p-5 w-11/12 m-auto bg-stone-900 relative flex max-sm:flex-col max-md:w-full max-lg:flex max-lg:items-center  ">
-                <div className="h-full w-1/2 max-md:w-full">
+            <article className="h-full xl:w-2/3 w-full overflow-y-scroll borde ">
+
+              <div className="h-full p-1 w-full m-auto flex borde max-sm:flex-col max-md:w-full max-lg:flex max-lg:items-center  ">
+                <div className="h-full w-full flex borde  p-5 justify-center items-center cursor-pointer max-md:w-full">
                   {isLoading ? (
                     <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={500} height={600} />
                   ) : (
                     <>
+                      <div className="  relative">
 
-                      {selectedImage === "../images/large.jpg" && (
 
-                        <div className="absolute md:top-80 top md:right-48 lg:top-9 xl:top-20 xl:right-96 bg-black xl:w-52 md:w-36    ">
-                          <img className=" shadow-2xl shadow-black sha" src={`${URLimage}/${post.image}`} />
-                        </div>
 
-                      )}
-                      <img
-                        className="max-lg:h-1/2   h-full   "
-                        src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
-                        alt="oeuvre_id"
-                        onClick={openModal}
-                      />
+                        <img
+                          className="max-lg:h-1/2 relative  h-full   "
+                          src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
+                          alt="oeuvre_id"
+                          onClick={openModal}
+                        />
+                        {selectedImage === "../images/large.jpg" && (
+
+
+                          <img className=" absolute inset-x-1/3 z-50  top-2 w-2/12 shadow-2xl shadow-black " src={`${URLimage}/${post.image}`} />
+
+
+                        )}
+
+                      </div>
 
                     </>
                   )}
                 </div>
-                <div className="h-full w-1/2 max-md:w-full">
+                {/* <div className="h-full w-1/3 max-md:w-full">
                   <p>commentaire :</p>
                
-                </div>
+                </div> */}
 
               </div>
 
@@ -199,14 +215,25 @@ const ArticleDetailPage: React.FC = () => {
 
             </article>
 
+            <article className="xl:w-1/3 w-full h-full bg-stone-700 p-5 flex items-center justify-center">
+              <div>
+              <h1>commenatire</h1>
+              <p>La Bavière, nid d’espions ? Les autorités allemandes ont annoncé, ce jeudi 18 avril, l’arrestation de deux agents russes présumés, soupçonnés d’avoir planifié des actes de sabotage y compris contre l’armée américaine pour soutenir le «régime criminel de Poutine» dans sa guerre contre l’Ukraine. Les deux hommes, qui possèdent également la nationalité allemande, ont été interpellés à Bayreuth, dans le sud-est du pays, a préc</p>
+
+              </div>
+            </article>
+
+
+        </div>
+
           </div>
           {modalOpen && (
-          <div className="gg flex items-center justify-center  ">
-        
+            <div className=" flex  items-center h-full justify-center absolute backdrop-blur-sm z-50 w-full  ">
 
-<Modal image={`${URLimage}/${post.image}`} image2={<ModalCanape imagecanap={`${URLimage}/${post.image}`} />} closeModal={closeModal} />
-          </div>
-        )}
+
+              <Modal image={`${URLimage}/${post.image}`} image2={<ModalCanape imagecanap={`${URLimage}/${post.image}`} />} closeModal={closeModal} />
+            </div>
+          )}
         </>
       )
       }

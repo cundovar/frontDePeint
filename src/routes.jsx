@@ -8,28 +8,28 @@ import ArticleDetailPage from "./pages/oeuvreId";
 import Contact from "./pages/contact";
 import APropos from "./pages/aPropos";
 
-const  RoutesPage=()=>{
+const RoutesPage = () => {
 
 
-    return(
-        <div className="w-full h-dvh flex flex-col max-md:p-3  ">
-        <Router>
-  <div><h1 className="text-4xl  bg-gradient-to-r from-cyan-600 ">Nathan V Art</h1></div>
-      <div className=" max-lg:ml-1 xl:ml-0 total_total h-full w-full 2xl:h-5/6  relative 2xl:border-red-600 m-auto 2xl:w-11/12 lg:overflow-hidden overflow-scroll " >
-        <Header/>
-      <div className="  max-w-full z-40 m-auto md:overflow-hidden">
-            <Routes>
-                <Route path="/" element={<Accueil/>} />
-                <Route path="/peinture" element={<Peinture/>} />
-                <Route path="/digital" element={<Digital/>} />
-                <Route path="/oeuvre/:id" element={<ArticleDetailPage/>} />
-                <Route path="/contact" element={<Contact/>} />
-                <Route path="/apropos" element={<APropos/>} />
-            </Routes>
+    return (
+        <div className="w-full h-dvh border flex flex-col  justify-center max-md:p-3  ">
+            <Router>
+                <div><h1 className="text-4xl  bg-gradient-to-r from-cyan-600 ">Nathan V Art</h1></div>
+                <div className="   m-auto max-lg:ml-1 xl:ml-0 total_total h-full w-full 2xl:h-5/6  relative 2xl:border-red-600 2xl:m-auto 2xl:w-10/12 lg:overflow-hidden overflow-scroll " >
+                    <Header />
+                    <div className="  h-full m-auto  z-40 m-auto md:overflow-hidden">
+                        <Routes>
+                            <Route path="/" element={<Accueil />} />
+                            <Route path="/peinture" element={<Peinture />} />
+                            <Route path="/digital" element={<Digital />} />
+                            <Route path="/oeuvre/:id" element={<ArticleDetailPage />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/apropos" element={<APropos />} />
+                        </Routes>
 
-      </div>
-            </div>
-        </Router>
+                    </div>
+                </div>
+            </Router>
         </div>
     )
 }
