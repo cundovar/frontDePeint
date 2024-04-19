@@ -128,9 +128,11 @@ const ArticleDetailPage: React.FC = () => {
             </div>
           </div>
           <div className="w-4/12 h-1/2 max-sm:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-sm:relative   flex items-start bottom-0 left-0 borde " >
-            <div className="2xl:w-10/12 m-auto h-full   borde max-sm:w-full ">
+            <div className="2xl:w-10/12 m-auto h-full relative   borde max-sm:w-full ">
 
-
+            <div className="absolute w-2/3 top-20  -right-1/2 ">
+              <img className="svg-icon" src="/images/background/tache.svg"/>
+            </div>
               <Encadrement name="titre" url={post.name} isloading={isLoading} />
               <Encadrement name="catégorie" url={categoryName} isloading={isLoading} />
               <Encadrement name="thème" url={themeName} isloading={isLoading} />
@@ -149,7 +151,7 @@ const ArticleDetailPage: React.FC = () => {
           </div>
 
 
-          <div className="w-8/12 h-full flex max-sm:w-full items-center justify-center borde   absolute max-h-full right-0 borde max-sm:relative ">
+          <div className="w-8/12 h-full flex max-sm:w-full items-center justify-center max-xl:overflow-y-scroll   absolute max-h-full right-0  max-sm:relative ">
             <div className="borde space-y-3 max-md:hidden">
               <div className="h-16 w-16 image overflow-hidden cursor-pointer "
                 onClick={() =>
@@ -171,9 +173,9 @@ const ArticleDetailPage: React.FC = () => {
               </div>
 
             </div>
-        <div className="flex max-xl:flex-col overflow-y-scroll">
+        <div className="flex max-xl:flex-col justify-center items-center ">
 
-            <article className="h-full xl:w-2/3 w-full overflow-y-scroll borde ">
+            <article className="h-full xl:w-2/3 w-full    ">
 
               <div className="h-full p-1 w-full m-auto flex borde max-sm:flex-col max-md:w-full max-lg:flex max-lg:items-center  ">
                 <div className="h-full w-full flex borde  p-5 justify-center items-center cursor-pointer max-md:w-full">
@@ -228,7 +230,7 @@ const ArticleDetailPage: React.FC = () => {
 
           </div>
           {modalOpen && (
-            <div className=" flex  items-center h-full justify-center absolute backdrop-blur-sm z-50 w-full  ">
+            <div className=" flex  items-center h-full justify-center absolute bg-opacity-25 bg-stone-900 backdrop-blur-sm z-50 w-full  ">
 
 
               <Modal image={`${URLimage}/${post.image}`} image2={<ModalCanape imagecanap={`${URLimage}/${post.image}`} />} closeModal={closeModal} />

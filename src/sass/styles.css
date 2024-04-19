@@ -1,14 +1,25 @@
 @import url("./acceuil/left.scss");
 @import url("./responsive.scss");
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 body {
   background-color: rgb(18, 18, 18);
   color: rgb(188, 203, 208);
+}
+
+.f {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 @media screen and (min-width: 481px) {
   body {
     height: 100vh;
   }
+}
+.close {
+  z-index: 1000 !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
