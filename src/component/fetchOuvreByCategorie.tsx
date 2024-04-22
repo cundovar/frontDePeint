@@ -48,10 +48,10 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
         
       </div>
      </div>
-     <div className="absolute right-0 w-8/12 h-full text_right max-sm:w-full max-sm:relative   overflow-y-scroll">
+     <div className="  absolute right-0 w-8/12 h-full text_right max-sm:w-full max-sm:relative   lg:overflow-y-scroll">
 
-      <div className="text-4xl sm:invisible  font-title">{title} </div>
-      <ul className='flex flex-wrap h-full w-full  justify-center items-end '>
+      <div className="text-4xl sm:invisible  font-title">{title}  </div>
+      <ul className='flex  flex-wrap h-full w-full  justify-center items-end '>
         {isLoading ? (
           <div className="flex gap-5 flex-wrap justify-center items-center ">
             {[1, 2, 3, 4].map((index) => (
@@ -68,16 +68,18 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
               <div>
                 {/* <p>titre: {article.name}</p> */}
                 
-                <div className='p-2 cursor-pointer  '>
+                <div className='hover01 p-2 cursor-pointer  '>
                   <Link to={`/oeuvre/${article.id}`}>
             
-
+                  <figure className=" overflow-hidden">
                   <img
                     style={{ width: '20rem' }}
                     alt={article.name}
                     src={`${URLimage}/${article.image}`}
                     className=" hover:opacity-75 "
                   />
+
+                  </figure>
                   
 
                   </Link>

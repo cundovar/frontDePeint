@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Accueil from "./pages/accueil";
 import Peinture from "./pages/peinture";
 import Digital from "./pages/digital";
@@ -14,8 +14,19 @@ const RoutesPage = () => {
     return (
         <div className="w-full h-dvh border flex flex-col  justify-center max-md:p-3  ">
             <Router>
-                <div><h1 className="text-4xl  bg-gradient-to-r from-cyan-600 ">Nathan V Art</h1></div>
-                <div className="   m-auto max-lg:ml-1 xl:ml-0 total_total h-full w-full 2xl:h-5/6  relative 2xl:border-red-600 2xl:m-auto 2xl:w-10/12 lg:overflow-hidden overflow-scroll " >
+                <div>
+                    
+                  <Link to="/">
+
+                        <div className="m-2 cursor-pointer ">
+                        <img className="hover:opacity-80 h-20 rounded-xl" src="/images/logo/log.PNG"/>
+                    </div>
+
+                  </Link>
+                        
+                   
+                        </div>
+                <div className="   m-auto max-lg:ml-1 xl:ml-0 total_total h-full w-full 2xl:h-5/6  relative 2xl:border-red-600 2xl:m-auto 2xl:w-10/12 lg:overflow-hidden overflow-y-scroll " >
                     <Header />
                     <div className="  h-full m-auto  z-40 m-auto md:overflow-hidden">
                         <Routes>

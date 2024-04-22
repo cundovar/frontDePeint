@@ -28,6 +28,7 @@ export default function Accueil() {
 
 return(
     <section className="w-11/12 flex lg:h-full absolute borde total right-0 ">
+        
         <article className=' w-4/12 borde h-full left flex flex-col items-end justify-end '>
 <div className='h-full w-full flex justify-center  items-center invisible 2xl:visible '>
     <h2 className='text-8xl vertical '>ART</h2>

@@ -128,7 +128,7 @@ const ArticleDetailPage: React.FC = () => {
             </div>
           </div>
           <div className="w-4/12 h-1/2 max-sm:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-sm:relative   flex items-start bottom-0 left-0 borde " >
-            <div className="2xl:w-10/12 m-auto h-full relative   borde max-sm:w-full ">
+            <div className="2xl:w-10/12 m-auto h-full relative max-sm:overflow-hidden   borde max-sm:w-full ">
 
             <div className="absolute w-2/3 top-20  -right-1/2 ">
               <img className="svg-icon" src="/images/background/tache.svg"/>
@@ -151,7 +151,7 @@ const ArticleDetailPage: React.FC = () => {
           </div>
 
 
-          <div className="w-8/12 h-full flex max-sm:w-full items-center justify-center max-xl:overflow-y-scroll   absolute max-h-full right-0  max-sm:relative ">
+          <div className="w-8/12 h-full flex max-sm:w-full items-center borde justify-center max-xl:overflow-y-scroll   absolute max-h-full right-0  max-sm:relative ">
             <div className="borde space-y-3 max-md:hidden">
               <div className="h-16 w-16 image overflow-hidden cursor-pointer "
                 onClick={() =>
@@ -173,22 +173,22 @@ const ArticleDetailPage: React.FC = () => {
               </div>
 
             </div>
-        <div className="flex max-xl:flex-col justify-center items-center ">
+        <div className="flex h-full borde max-xl:flex-col justify-center items-center ">
 
-            <article className="h-full xl:w-2/3 w-full    ">
+            <article className="h-full w-full borde   ">
 
-              <div className="h-full p-1 w-full m-auto flex borde max-sm:flex-col max-md:w-full max-lg:flex max-lg:items-center  ">
-                <div className="h-full w-full flex borde  p-5 justify-center items-center cursor-pointer max-md:w-full">
+              <div className="h-full  w-full p-5 m-auto flex borde max-sm:flex-col max-md:w-full max-lg:flex max-lg:items-center  ">
+                <div className="h-full w-full flex borde relative  justify-center items-start cursor-pointer max-md:w-full">
                   {isLoading ? (
                     <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={500} height={600} />
                   ) : (
                     <>
-                      <div className="  relative">
+                      <div className=" h-full   flex items-start justify-start ">
 
 
 
                         <img
-                          className="max-lg:h-1/2 relative  h-full   "
+                          className="  max-lg:h-1/2 relative w-full zoom h-full    "
                           src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
                           alt="oeuvre_id"
                           onClick={openModal}
@@ -196,7 +196,7 @@ const ArticleDetailPage: React.FC = () => {
                         {selectedImage === "../images/large.jpg" && (
 
 
-                          <img className=" absolute inset-x-1/3 z-50  top-2 w-2/12 shadow-2xl shadow-black " src={`${URLimage}/${post.image}`} />
+                          <img className=" absolute inset-x-1/3 z-50  top-1 w-2/12 shadow-2xl shadow-black " src={`${URLimage}/${post.image}`} />
 
 
                         )}
@@ -217,20 +217,20 @@ const ArticleDetailPage: React.FC = () => {
 
             </article>
 
-            <article className="xl:w-1/3 w-full h-full bg-stone-700 p-5 flex items-center justify-center">
+            {/* <article className="xl:w-1/3 w-full h-full bg-stone-700 p-5 flex items-center justify-center">
               <div>
               <h1>commenatire</h1>
               <p>La Bavière, nid d’espions ? Les autorités allemandes ont annoncé, ce jeudi 18 avril, l’arrestation de deux agents russes présumés, soupçonnés d’avoir planifié des actes de sabotage y compris contre l’armée américaine pour soutenir le «régime criminel de Poutine» dans sa guerre contre l’Ukraine. Les deux hommes, qui possèdent également la nationalité allemande, ont été interpellés à Bayreuth, dans le sud-est du pays, a préc</p>
 
               </div>
-            </article>
+            </article> */}
 
 
         </div>
 
           </div>
           {modalOpen && (
-            <div className=" flex  items-center h-full justify-center absolute bg-opacity-25 bg-stone-900 backdrop-blur-sm z-50 w-full  ">
+            <div className="max-sm:hidden flex  items-center h-full justify-center absolute bg-opacity-25 bg-stone-900 backdrop-blur-sm z-50 w-full  ">
 
 
               <Modal image={`${URLimage}/${post.image}`} image2={<ModalCanape imagecanap={`${URLimage}/${post.image}`} />} closeModal={closeModal} />

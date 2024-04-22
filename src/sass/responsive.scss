@@ -11,16 +11,9 @@ width: 100%;
         padding: 0.2rem;
     }
  
-   .nav{
-  width: 20%;
- top: 3rem;
- left:0;
- justify-content: start;
- align-items: start;
- position: fixed;
-
  
-   }
+ 
+   
 
     section{
         flex-direction: column;
@@ -29,8 +22,7 @@ width: 100%;
     article{
         width: 100%;
     }
-    .total_total{
-    }
+   
     body,html{
         height: 100%;
     }
@@ -62,4 +54,19 @@ width: 100%;
 
     }
 
+}
+
+@media screen and (max-width: 777px) {
+
+    .nav{
+        width: 95%;
+       top: 3rem;
+       left:0;
+       justify-content: start;
+       align-items: start;
+       position: fixed;
+      #mega-menu-full{
+          width: 50%;
+      }
+    }
 }
