@@ -8,7 +8,7 @@ function App() {
 
 
   return (
-    <div className="App overflow-hidden   border ">
+    <div className="App overflow-hidden   ">
       <div className='absolute -top-64 h-svh -z-10 flex overflow-hidden'>
          <img className='h-full object-contain ' src='/images/background/fond.svg'/>
 

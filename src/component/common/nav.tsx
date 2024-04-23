@@ -31,7 +31,7 @@ export const Header=()=>{
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
             </svg>
         </button>
-        <div id="mega-menu-full" className={`p-2 rounded-xl bg-gradient-to-r from-cyan-600 items-center justify-between font-medium ${isMenuOpen ? 'flex' : 'hidden'} w-full md:flex md:w-auto md:order-1 mt-2`}>
+        <div id="mega-menu-full" className={` max-sm:mt-20 p-2 rounded-xl bg-gradient-to-r from-cyan-600 items-center justify-between font-medium ${isMenuOpen ? 'flex' : 'hidden'} w-full md:flex md:w-auto md:order-1 mt-2`}>
          
         <ul className='flex flex-col w-full space-y-5   border-orange-400 '>
          <li className='text-2xl  trux border-t-emerald-200 '><Link to="/">Accueil</Link></li>

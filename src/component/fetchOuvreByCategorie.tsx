@@ -42,7 +42,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
           </div>
     </div>
      <div className="w-4/12 h-1/2 absolute max-sm:relative max-sm:justify-end  text_left flex justify-center items-center border-amber-600 bottom-0 left-0  lg:p-20 max-sm:w-full" >
-      <div className="max-sm:w-1/2">
+      <div className="max-sm:w-3/4">
        <h1 className="text-2xl"> {presentation} </h1>
        <p>{text} </p>
         

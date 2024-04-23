@@ -12,7 +12,7 @@ const RoutesPage = () => {
 
 
     return (
-        <div className="w-full h-dvh border flex flex-col  justify-center max-md:p-3  ">
+        <div className="w-full h-dvh  flex flex-col  justify-center max-md:p-3  ">
             <Router>
                 <div>
                     
