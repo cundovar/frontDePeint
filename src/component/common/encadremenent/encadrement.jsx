@@ -15,7 +15,7 @@ return(
         <div className="m-10">
     
         <p>
-        <span className="mt-1 bg-gradient-to-r from-cyan-600 p-1">
+        <span className="mt-1 bg-gradient-to-r  from-cyan-600 p-1">
              {name}
         </span> :
         <span className="ml-2">{url}   </span>

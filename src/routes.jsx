@@ -19,7 +19,7 @@ const RoutesPage = () => {
                   <Link to="/">
 
                         <div className="m-2 cursor-pointer ">
-                        <img className="hover:opacity-80 h-20 rounded-xl" src="/images/logo/log.PNG"/>
+                        <img className="hover:opacity-80 h-20 rounded-xl" src="/images/logo/log.PNG" alt="logo"/>
                     </div>
 
                   </Link>
@@ -28,7 +28,7 @@ const RoutesPage = () => {
                         </div>
                 <div className="   m-auto max-lg:ml-1 xl:ml-0 total_total h-full w-full 2xl:h-5/6  relative 2xl:border-red-600 2xl:m-auto 2xl:w-10/12 lg:overflow-hidden overflow-y-scroll " >
                     <Header />
-                    <div className="  h-full m-auto  z-40 m-auto md:overflow-hidden">
+                    <div className="  h-full   z-40 m-auto md:overflow-hidden">
                         <Routes>
                             <Route path="/" element={<Accueil />} />
                             <Route path="/peinture" element={<Peinture />} />

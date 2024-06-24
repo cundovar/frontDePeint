@@ -1,5 +1,4 @@
-
-import { Box, Button, Skeleton, Typography } from "@mui/material";
+import { Avatar, Box, Button, Skeleton, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -9,9 +8,6 @@ import { URLOeuvreId, URLimage } from "../utils/varaibleFetch";
 import Modal from "../component/oeuvreid/modal";
 import ModalCanape from "../component/oeuvreid/canapemodal";
 
-
-import { useRef } from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -20,31 +16,18 @@ interface Post {
   description: string;
   image: string;
   categorie: string;
-  theme: string
+  theme: string;
 }
 
-
-
 const ArticleDetailPage: React.FC = () => {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
-
-
+  const [showAbsoluteImage, setShowAbsoluteImage] = useState(false);
   const [post, setPost] = useState<Post | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryName, setCategoryName] = useState<string>("");
   const [themeName, setThemeName] = useState<string>("");
-  const [selectedImage, setSelectedImage] = useState<string>("")
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [selectedImage, setSelectedImage] = useState<string>("");
   const [modalOpen, setModalOpen] = useState(false);
+  const [show,setShow]=useState(false)
 
   const openModal = () => {
     setModalOpen(true);
@@ -53,52 +36,24 @@ const ArticleDetailPage: React.FC = () => {
     setModalOpen(false);
   };
 
-
-
-  const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
-
-  const params = useParams<{ id: string }>()
+  const params = useParams<{ id: string }>();
   const fetchPost = async (id: number) => {
-    const res = await fetch(`${URLOeuvreId}/${id}`);
-    if (!res.ok) {
-      throw new Error('Failed to fetch article');
-
-    }
-
-
-    const postData = await res.json();
-    setIsLoading(false);
-    // console.log( 'post',postData)
-
-    if (postData) {
+    try {
+      const res = await fetch(`${URLOeuvreId}/${id}`);
+      if (!res.ok) {
+        throw new Error('Failed to fetch article');
+      }
+      const postData = await res.json();
+      console.log('post', postData);
+      
       setPost(postData);
-
-      fetchRelation(postData.theme, setThemeName)
-      fetchRelation(postData.categorie, setCategoryName)
-      console.log('url', postData.categorie)
+      fetchRelation(postData.theme, setThemeName);
+      fetchRelation(postData.categorie, setCategoryName);
+      setIsLoading(false); // Mettre à jour l'état de chargement après avoir récupéré les données
+    } catch (error) {
+      console.error(error);
     }
   };
-
-
-  // const ImgCanape = (url:any) => (
-  //   <>
-  //     {selectedImage === "../images/large.jpg" && (
-  //       <div className="absolute md:top-80 top md:right-48 lg:top-9 xl:top-20 xl:right-96 bg-black xl:w-52 md:w-36">
-  //         <img className="shadow-2xl shadow-black sha" src= {url} />
-  //       </div>
-  //     )}
-  //   </>
-  // );
 
   useEffect(() => {
     const postId = Number(params.id);
@@ -106,149 +61,140 @@ const ArticleDetailPage: React.FC = () => {
       fetchPost(postId);
     }
   }, [params.id]);
-  // console.log('dataa',categoryName)
 
   const handleClickImage = (imageUrl: string) => {
-    setSelectedImage(imageUrl)
-  }
+    setSelectedImage(imageUrl);
+  };
+  useEffect(()=>{
+    const timer=setTimeout(()=>{
+      setShow(true);
+
+    },300)
+    return () => clearTimeout(timer);
+  })
+
+  useEffect(() => {
+    if (selectedImage === "../images/large.jpg") {
+      const timer = setTimeout(() => {
+        setShowAbsoluteImage(true);
+      }, 450); // Délai de 450 ms avant d'afficher l'image
+      return () => clearTimeout(timer); // Nettoyer le timer si selectedImage change avant que le délai soit écoulé
+    } else {
+      setShowAbsoluteImage(false);
+    }
+  }, [selectedImage]);
+
   return (
-    <section className=" max-sm:flex-col-reverse max-sm:flex max-sm:mt-56 borde ">
-
-      {post && (
+    <section className={`${isLoading && "flex items-center justify-center h-full"} max-md:flex-col-reverse max-md:flex max-md:mt-20 borde`}>
+      {isLoading ? (
         <>
+ 
+        
+      <div className="flex justify-center items-center">
 
-          <div className="borde w-4/12 h-1/2 flex max-sm:flex-col absolute max-sm:w-full z-40   ">
-            <h3 className="text-4xl flex justify-start font-title max-sm:text-2xl max-md:visible hidden  max-lg:text-4xl ">{post.name} </h3>
-            <div className="w-1/2"> </div>
-            <div className="w-1/2 flex items-center justify-center   ">
+        <div className="m-20 space-y-10  flex flex-col justify-center items-center">
+        <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={70} height={70} />
+        <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={70} height={70} />
 
+      </div>
+       
 
-              <h3 className="text-4xl max-md:hidden  flex justify-center font-title max-sm:text-2xl  max-lg:text-4xl ">{post.name} </h3>
-
-            </div>
-          </div>
-          <div className="w-4/12 h-1/2 max-sm:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-sm:relative   flex items-start bottom-0 left-0 borde " >
-            <div className="2xl:w-10/12 m-auto h-full relative max-sm:overflow-hidden   borde max-sm:w-full ">
-
-            <div className="absolute w-2/3 top-20  -right-1/2 ">
-              <img className="svg-icon" src="/images/background/tache.svg"/>
-            </div>
-              <Encadrement name="titre" url={post.name} isloading={isLoading} />
-              <Encadrement name="catégorie" url={categoryName} isloading={isLoading} />
-              <Encadrement name="thème" url={themeName} isloading={isLoading} />
-
-              {post.description ? (
-
-                <Encadrement name="description" url={post.description} isloading={isLoading} />
-
-              ) : (
-
-                <p></p>
-              )}
-
-              {/* <p style={{ paddingTop: '10px' }}>theme :{post.theme}</p> */}
-            </div>
-          </div>
-
-
-          <div className="w-8/12 h-full flex max-sm:w-full items-center borde justify-center max-xl:overflow-y-scroll   absolute max-h-full right-0  max-sm:relative ">
-            <div className="borde space-y-3 max-md:hidden">
-              <div className="h-16 w-16 image overflow-hidden cursor-pointer "
-                onClick={() =>
-                  handleClickImage(
-                    `${URLimage}/${post.image}`
-                  )
-                }>
-
-                <img className="object-cover" src={`${URLimage}/${post.image}`} alt="img-id" />
-              </div>
-              <div className="h-16 w-16 borde bg-stone-200 cursor-pointer "
-                onClick={() =>
-                  handleClickImage(
-                    '../images/large.jpg'
-                  )
-                } >
-
-                <img className="object-cover logo " src="../images/logo/canape.webp" alt="logo-canape" />
-              </div>
-
-            </div>
-        <div className="flex h-full borde max-xl:flex-col justify-center items-center ">
-
-            <article className="h-full w-full borde   ">
-
-              <div className="h-full  w-full p-5 m-auto flex borde max-sm:flex-col max-md:w-full max-lg:flex max-lg:items-center  ">
-                <div className="h-full w-full flex borde relative  justify-center items-start cursor-pointer max-md:w-full">
-                  {isLoading ? (
-                    <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={500} height={600} />
-                  ) : (
-                    <>
-                      <div className=" h-full   flex items-start justify-start ">
-
-
-
-                        <img
-                          className="  max-lg:h-1/2 relative w-full zoom h-full    "
-                          src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
-                          alt="oeuvre_id"
-                          onClick={openModal}
-                        />
-                        {selectedImage === "../images/large.jpg" && (
-
-
-                          <img className=" absolute inset-x-1/3 z-50  top-1 w-2/12 shadow-2xl shadow-black " src={`${URLimage}/${post.image}`} />
-
-
-                        )}
-
-                      </div>
-
-                    </>
-                  )}
-                </div>
-                {/* <div className="h-full w-1/3 max-md:w-full">
-                  <p>commentaire :</p>
-               
-                </div> */}
-
-              </div>
-
-
-
-            </article>
-
-            {/* <article className="xl:w-1/3 w-full h-full bg-stone-700 p-5 flex items-center justify-center">
-              <div>
-              <h1>commenatire</h1>
-              <p>La Bavière, nid d’espions ? Les autorités allemandes ont annoncé, ce jeudi 18 avril, l’arrestation de deux agents russes présumés, soupçonnés d’avoir planifié des actes de sabotage y compris contre l’armée américaine pour soutenir le «régime criminel de Poutine» dans sa guerre contre l’Ukraine. Les deux hommes, qui possèdent également la nationalité allemande, ont été interpellés à Bayreuth, dans le sud-est du pays, a préc</p>
-
-              </div>
-            </article> */}
-
-
-        </div>
-
-          </div>
-          {modalOpen && (
-            <div className="max-sm:hidden flex  items-center h-full justify-center absolute bg-opacity-25 bg-stone-900 backdrop-blur-sm z-50 w-full  ">
-
-
-              <Modal image={`${URLimage}/${post.image}`} image2={<ModalCanape imagecanap={`${URLimage}/${post.image}`} />} closeModal={closeModal} />
-            </div>
-          )}
+        <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={800} height={700} />
+      </div>
+        
         </>
-      )
-      }
+      ) : (
+      
+      <>
+      
+        <div className={`${show && "hidden"}  w-full h-screen  flex justify-center items-center`}>
+    <div role="status">
+    <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+    </svg>
+    <span className="sr-only">Loading...</span>
+</div>
+          
+        </div>
+      {show &&(
+   
+        
+           post && (
+             <>
+               <div className="borde w-4/12 h-1/2 flex max-md:flex-col absolute max-md:w-full z-40">
+                 <h3 className="text-4xl flex justify-start font-title max-sm:text-2xl max-md:visible hidden max-lg:text-4xl">{post.name}</h3>
+                 <div className="w-1/2"></div>
+                 <div className="w-1/2 flex items-center justify-center">
+                   <h3 className="text-4xl max-md:hidden flex justify-center font-title max-md:text-2xl max-lg:text-4xl">{post.name}</h3>
+                 </div>
+               </div>
+               <div className="w-4/12 h-1/2 max-md:w-full xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-md:relative flex items-start bottom-0 left-0 borde">
+                 <div className="2xl:w-10/12 m-auto h-full relative max-md:overflow-hidden borde max-md:w-full">
+                   <div className="absolute w-2/3 top-20 -right-1/2">
+                     <img className="svg-icon" src="/images/background/tache.svg" alt="style" />
+                   </div>
+                   <Encadrement name="titre" url={post.name} isloading={isLoading} />
+                   <Encadrement name="catégorie" url={categoryName} isloading={isLoading} />
+                   <Encadrement name="thème" url={themeName} isloading={isLoading} />
+                   {post.description ? (
+                     <Encadrement name="description" url={post.description} isloading={isLoading} />
+                   ) : (
+                     <p></p>
+                   )}
+                 </div>
+               </div>
+               <div className="w-8/12 h-full flex max-md:w-full items-center borde justify-center max-xl:overflow-y-scroll absolute max-h-full right-0 max-md:relative">
+                 <div className="borde space-y-3 max-md:hidden">
+                   <div className="h-16 w-16 image overflow-hidden cursor-pointer" onClick={() => handleClickImage(`${URLimage}/${post.image}`)}>
+                     <img className="object-cover" src={`${URLimage}/${post.image}`} alt="img-id" />
+                   </div>
+                   <div className="h-16 w-16 borde bg-stone-200 cursor-pointer" onClick={() => handleClickImage('../images/large.jpg')}>
+                     <img className="object-cover logo" src="../images/logo/canape.webp" alt="logo-canape" />
+                   </div>
+                 </div>
+                 <div className="flex h-full  max-xl:flex-col justify-center items-center">
+                   <article className=" w-full  ">
+                     <div className="h-full w-full p-5 m-auto flex borde max-md:flex-col max-md:w-full max-lg:flex max-lg:items-center">
+                       <div className="h-full w-full flex  relative justify-center items-start cursor-pointer max-md:w-full">
+                         {isLoading ? (
+                          <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={800} height={700} />
+                        
+                         ) : (
+                           <div className="h-full w-full flex items-start justify-start">
+                           
+                             <img
+                               className=" relative object-contain  w-full zoom h-full"
+                               src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
+                               alt="oeuvre_id"
+                               onClick={openModal}
+                             />
+                             {showAbsoluteImage && (
+                               <img className="absolute inset-x-1/3 z-50 top-[4%] w-2/12 shadow-2xl shadow-black" src={`${URLimage}/${post.image}`} alt="mini oeuvre" />
+                             )}
+                           </div>
+                         )}
+                       </div>
+                     </div>
+                   </article>
+                 </div>
+               </div>
+               {modalOpen && (
+                 <div className="max-sm:hidden flex items-center h-full justify-center absolute bg-opacity-25 bg-stone-900 backdrop-blur-sm z-50 w-full">
+                   <Modal image={`${URLimage}/${post.image}`} image2={<ModalCanape imagecanap={`${URLimage}/${post.image}`} />} closeModal={closeModal} />
+                 </div>
+               )}
+             </>
+           )          
+        
+    
 
-
-
-
+      )}
+      
+      </>
+      )}
     </section>
   );
 };
 
 export default ArticleDetailPage;
-
-
-
-

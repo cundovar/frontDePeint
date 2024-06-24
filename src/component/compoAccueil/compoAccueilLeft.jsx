@@ -81,10 +81,10 @@ const CompoAccueilLeft = () => {
         </figure>
         </Link>
       </div>
-      <div className="dix border  invisible">10</div>
-      <div className="onze border  invisible">11</div>
-      <div className="douze border  invisible">12</div>
-      <div className="treize border  invisible">13</div>
+      <div className="dix border  hidden">10</div>
+      <div className="onze border  hidden">11</div>
+      <div className="douze border  hidden">12</div>
+      <div className="treize border  hidden">13</div>
       <div className="quatorze  ">
       <figure className=" overflow-hidden">
         <img className="h-full object-cover" src={`${URLImageAccueil}${article.img4}`} /> 

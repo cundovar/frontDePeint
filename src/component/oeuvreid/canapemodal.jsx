@@ -13,7 +13,7 @@ const ModalCanape=({imagecanap})=>{
         
 
             <img className=" m-auto" src="../images/large.jpg" alt="canape"/>
-            <img className="absolute z-50 inset-x-1/3 z-50  top-2 w-2/12 shadow-2xl shadow-black  " src={imagecanap}  alt="image id absolute"/>
+            <img className="absolute z-50 inset-x-1/3 z-50  top-[4%]  w-2/12 shadow-2xl shadow-black  " src={imagecanap}  alt="image id absolute"/>
 
            
         </div>

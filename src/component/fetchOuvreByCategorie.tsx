@@ -20,15 +20,8 @@ interface Props {
 const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentation,text }) => {
 
   const { articles, isLoading } = FetchArticles(UrlPeintureDigital, categorieUrl);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]); 
-  const handleCategoryChange = (category: string) => {
-    // Mettre à jour les catégories sélectionnées
-    if (selectedCategories.includes(category)) {
-      setSelectedCategories(selectedCategories.filter(c => c !== category)); // Si la catégorie est déjà sélectionnée, la retirer
-    } else {
-      setSelectedCategories([...selectedCategories, category]); // Sinon, l'ajouter aux catégories sélectionnées
-    }
-  };
+  
+ 
 
   
   return (
@@ -36,8 +29,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
     <div className="borde flex max-sm:w-full max-sm:hidden  border-lime-500 w-4/12 h-1/2 absolute left-0 top-0 ">
           <div className="w-4/12 "></div>
           <div className="w-8/12  space-y-5 max-lg:justify-end max-sm:flex-row max-sm:w-full flex flex-col justify-center items-center ">
-         {/* <div className="w-20 h-20 bg-red-700"></div>
-         <div className="w-20 h-20 bg-red-700"></div> */}
+      
             <div className="text-6xl  max-sm:invisible font-title">{title} </div>
           </div>
     </div>
