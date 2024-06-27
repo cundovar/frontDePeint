@@ -1,6 +1,7 @@
 
 import React from "react";
 import FetchOeuvreByCategorie from "../component/fetchOuvreByCategorie";
+import Breadcrumb from "../component/common/breadcrumb";
 
 const Peinture: React.FC = () => {
 
@@ -15,10 +16,12 @@ const Peinture: React.FC = () => {
         const title="peinture"
     
         return(
-            <section>
-    
+            <>
+      <Breadcrumb />
+            <section className=" mt-10 overflow-hidden w-full h-full absolute">
             <FetchOeuvreByCategorie categorieUrl={categorieUrl} title={title} text={text} presentation={presentation} ></FetchOeuvreByCategorie>
             </section>
+            </>
         )
         }
 

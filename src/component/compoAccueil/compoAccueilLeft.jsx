@@ -47,7 +47,7 @@ const CompoAccueilLeft = () => {
         <Link to="/peinture">
         <figure className="  overflow-hidden">
 
-          <img className="h-full  object-cover" src={`${URLImageAccueil}${article.img1}`} />
+          <img className="h-full  object-cover" src={`${URLImageAccueil}${article.img1}`} alt="accuiel" />
 
         </figure>
         </Link>
@@ -56,7 +56,7 @@ const CompoAccueilLeft = () => {
       <div className="four  ">
         <Link to="/peinture">
         <figure className=" overflow-hidden">
-          <img className="h-full w-full  object-cover" src={`${URLImageAccueil}${article.img3}`} />
+          <img className="h-full w-full  object-cover" src={`${URLImageAccueil}${article.img3}`} alt="accuiel" />
 
         </figure>
         </Link>
@@ -66,7 +66,7 @@ const CompoAccueilLeft = () => {
       <div className="huit ">
         <Link to="/peinture">
           <figure className="  overflow-hidden">
-            <img className="h-full object-cover " src={`${URLImageAccueil}${article.img2}`} />
+            <img className="h-full object-cover " src={`${URLImageAccueil}${article.img2}`} alt={article.id} />
 
           </figure>
 
@@ -76,7 +76,7 @@ const CompoAccueilLeft = () => {
         <Link to="/digital">
         <figure className=" overflow-hidden">
 
-          <img className="h-full object-cover" src={`${URLImageAccueil}${article.img5}`} />
+          <img className="h-full object-cover" src={`${URLImageAccueil}${article.img5}`} alt={article.id} />
 
         </figure>
         </Link>
@@ -87,8 +87,9 @@ const CompoAccueilLeft = () => {
       <div className="treize border  hidden">13</div>
       <div className="quatorze  ">
       <figure className=" overflow-hidden">
-        <img className="h-full object-cover" src={`${URLImageAccueil}${article.img4}`} /> 
-
+      <Link to="/digital">
+        <img className="h-full object-cover" src={`${URLImageAccueil}${article.img4}`}  alt={article.id}/> 
+</Link>
       </figure>
 
       </div>
