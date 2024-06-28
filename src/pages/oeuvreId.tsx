@@ -140,16 +140,16 @@ const ArticleDetailPage: React.FC = () => {
                     <h3 className="text-4xl max-md:hidden flex justify-center font-title max-md:text-2xl max-lg:text-4xl">{post.name}</h3>
                   </div>
                 </div>
-                <div className="w-4/12 xl:h-1/2 max-xl:w-full  xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-xl:relative flex items-start bottom-0 left-0 ">
+                <div className="w-4/12 xl:h-1/2 max-xl:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-xl:relative flex items-start bottom-0 left-0 ">
                   <div className="2xl:w-10/12 m-auto h-full relative max-xl:overflow-hidden borde max-xl:w-full ">
                     <div className="absolute w-2/3 top-20 -right-1/2">
                       <img className="svg-icon" src="/images/background/tache.svg" alt="style" />
                     </div>
-
                     <Encadrement name="titre" url={post.name} isloading={isLoading} />
                     <Encadrement name="catégorie" url={categoryName} isloading={isLoading} />
                     <Encadrement name="thème" url={themeName} isloading={isLoading} />
-                    {post.description ? (
+             
+      {post.description ? (
                       <Encadrement name="description" url={post.description} isloading={isLoading} />
                     ) : (
                       <p></p>

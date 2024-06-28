@@ -23,7 +23,7 @@ const RoutesPage = () => {
                     <Link to="/" className='z-50'>
 
                         <div className="m-2 cursor-pointer z-50 ">
-                            <img className="  z-50 focus:outline-none active:bg-violet-900 focus:ring focus:ring-violet-900 hover:opacity-80 h-[5rem] rounded-xl" src="/images/logo/log.PNG" alt="logo" />
+                            <img className="  z-50 focus:outline-none active:bg-violet-900 focus:ring focus:ring-violet-900 hover:opacity-80 h-[5rem] min-w-[8rem] rounded-xl" src="/images/logo/log.PNG" alt="logo" />
                         </div>
 
                     </Link>

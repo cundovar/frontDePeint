@@ -23,4 +23,8 @@ body {
   z-index: 1000 !important;
 }
 
+.breadcumb-item {
+  font-family: "Monoton", sans-serif;
+}
+
 /*# sourceMappingURL=styles.css.map */

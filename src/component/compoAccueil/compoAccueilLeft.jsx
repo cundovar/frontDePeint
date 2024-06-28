@@ -28,8 +28,8 @@ const CompoAccueilLeft = () => {
     return <div>Chargement...</div>;
   }
   return (
-    <div className="article_left h-full md:overflow-y-scroll hover14 ">
-      <div className="one   ">
+    <div className="article_left xl:h-full  hover14 ">
+      <div className="one    ">
         <div className="w-full h-1/2 " >
           <h1 className="text-8xl font-title max-sm:text-2xl max-lg:text-4xl">DIGITAL</h1>
           {/* <img src={article}/> */}
@@ -42,7 +42,7 @@ const CompoAccueilLeft = () => {
 
 
       </div>
-      <div className="two  "></div>
+      <div className="two hidden "></div>
       <div className="three  ">
         <Link to="/peinture">
         <figure className="  overflow-hidden">
