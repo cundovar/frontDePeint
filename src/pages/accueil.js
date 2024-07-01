@@ -35,7 +35,7 @@ export default function Accueil() {
         </div>
       </article>
       
-      <article className="   relative  w-full   lg:w-8/12 xl:overflow-y-scroll    text_right">
+      <article className="   relative  w-full   xl:w-8/12 xl:overflow-y-scroll    text_right">
         <CompoAccueilLeft />
       </article>
 

@@ -88,7 +88,7 @@ const ArticleDetailPage: React.FC = () => {
   }, [selectedImage]);
 
   return (
-    <section className={`${isLoading && "flex items-center justify-center h-full "} h-full overflow-hidden relative    max-xl:flex-col-reverse max-xl:flex max-xl:mt-20 `}>
+    <section className={`${isLoading && "flex items-center justify-center h-full "} h-full max-xl:absolute overflow-hidden relative    max-xl:flex-col-reverse max-xl:flex max-xl:mt-20 `}>
 
       {post && (
         <Breadcrumb categoryName={categoryName} id={post.id} Name={post.name} />
@@ -130,7 +130,7 @@ const ArticleDetailPage: React.FC = () => {
 
 
             post && (
-              <div className=" lg:h-full  relative w-full boder overflow-y-scroll max-lg:pb-96  ">
+              <div className=" lg:h-full  relative w-full overflow-y-scroll max-lg:pb-96  ">
 
                 <div className=" w-4/12 h-1/2 flex   max-xl:flex-col absolute max-xl:w-full z-40">
                   <h3 className="text-4xl flex justify-start font-title max-sm:text-2xl max-xl:visible hidden max-lg:text-4xl">{post.name}</h3>
@@ -157,7 +157,7 @@ const ArticleDetailPage: React.FC = () => {
 
                   </div>
                 </div>
-                <div className="w-8/12 xl:h-full flex max-xl:w-full xl:items-center  xl:justify-center absolute max-h-full right-0 max-xl:relative">
+                <div className="w-8/12 xl:h-full flex max-xl:pb-96 max-xl:w-full xl:items-center  xl:justify-center absolute max-h-full right-0 max-xl:relative">
                   <div className=" max-xl:hidden  ">
                     <div className=" space-y-3  left-1/3 max-xl:hidden">
                       <div className="h-16 w-16  image overflow-hidden cursor-pointer" onClick={() => handleClickImage(`${URLimage}/${post.image}`)}>
@@ -180,7 +180,7 @@ const ArticleDetailPage: React.FC = () => {
                             <div className="h-full w-full  flex items-start justify-start">
 
                               <img
-                                className=" relative object-contain  w-full zoom h-full"
+                                className=" relative object-cover  w-full zoom h-full"
                                 src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
                                 alt="oeuvre_id"
                                 onClick={openModal}

@@ -1,8 +1,8 @@
 
 
-export const urlBase="http://localhost:8001/api"
-export const urlBase1="http://localhost:8001"
-// https://bac.varascundo.com
+export const urlBase="https://bac.varascundo.com/api"
+export const urlBase1="https://bac.varascundo.com"
+// https://bac.varascundo.com http://localhost:8001
 export const UrlPeintureDigital=`${urlBase1}/api/oeuvres`
 export const UrlCategorie=`${urlBase}/categorie `
 

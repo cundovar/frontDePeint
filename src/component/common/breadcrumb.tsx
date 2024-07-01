@@ -15,7 +15,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ categoryName,id,Name }) => {
     e.target.style.color = 'pink';
   };
   return (
-    <nav className="breadcrumb fixed max-xl:top-28  max-xl:left-1/3 z-[999] top-30 left-96">
+    <nav className="breadcrumb fixed max-xl:top-28    max-xl:left-[2rem] z-[999] top-30 left-96">
       <ul className='flex xl:border-b p-3 '>
         <li className={`hover:text-cyan-300 focus:outline-none focus:ring-2 onFocus={handleFocus}`}
         onFocus={handleFocus}>
@@ -27,9 +27,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ categoryName,id,Name }) => {
           // Check if the path is "oeuvre"
           if (path === "oeuvre") {
             return (
-             <li key={to} className={` focus:text-black hover:text-cyan-300`}
-             onFocus={handleFocus}>
-                <Link to={`/${categoryName}`}>/{categoryName}</Link>
+             <li key={to} onFocus={handleFocus}  >
+             
+                <Link to={`/${categoryName}`}>/<span className={`  hover:text-cyan-300`}> {categoryName} </span> </Link>
               </li>
             );
           }
@@ -42,8 +42,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ categoryName,id,Name }) => {
           }
 
           return (
-            <li key={to} className="hover:text-cyan-300" onFocus={handleFocus}>
-              <Link to={to}>/{path}</Link>
+            <li key={to} onFocus={handleFocus}  >
+              <Link to={to}>/<span className="  hover:text-cyan-300"  > {path} </span> </Link>
             </li>
           );
         })}

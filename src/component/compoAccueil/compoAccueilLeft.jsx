@@ -28,12 +28,14 @@ const CompoAccueilLeft = () => {
     return <div>Chargement...</div>;
   }
   return (
-    <div className="article_left xl:h-full  hover14 ">
+    <div className="article_left xl:h-full lg:pb-96 sm:mb-[45rem] max-sm:pb-0  relative  hover14 ">
+          <div className="h-full  w-1/3 flex justify-start   items-start absolute mb-3 left-0 -top-8 sm:hidden ">
+          <h2 className="2xl:text-8xl xl:text-6xl  mb-2  vertical ">ART</h2>
+        </div>
       <div className="one    ">
         <div className="w-full h-1/2 " >
           <h1 className="text-8xl font-title max-sm:text-2xl max-lg:text-4xl">DIGITAL</h1>
           {/* <img src={article}/> */}
-
         </div>
         <div className="w-full h-1/2 ">
 
@@ -81,8 +83,8 @@ const CompoAccueilLeft = () => {
         </figure>
         </Link>
       </div>
-      <div className="dix border  hidden">10</div>
-      <div className="onze border  hidden">11</div>
+      <div className="dix border hidden">10</div>
+      <div className="onze border hidden"></div>
       <div className="douze border  hidden">12</div>
       <div className="treize border  hidden">13</div>
       <div className="quatorze  ">
