@@ -47,9 +47,9 @@ const CompoAccueilLeft = () => {
       <div className="two hidden "></div>
       <div className="three  ">
         <Link to="/peinture">
-        <figure className="  overflow-hidden">
+        <figure className=" scrollAnim overflow-hidden">
 
-          <img className="h-full  object-cover" src={`${URLImageAccueil}${article.img1}`} alt="accuiel" />
+          <img className="h-full scrollAnim object-cover" src={`${URLImageAccueil}${article.img1}`} alt="accuiel" />
 
         </figure>
         </Link>
@@ -57,8 +57,8 @@ const CompoAccueilLeft = () => {
       </div>
       <div className="four  ">
         <Link to="/peinture">
-        <figure className=" overflow-hidden">
-          <img className="h-full w-full  object-cover" src={`${URLImageAccueil}${article.img3}`} alt="accuiel" />
+        <figure className=" scrollAnim overflow-hidden">
+          <img className="h-full w-full scrollAnim  object-cover" src={`${URLImageAccueil}${article.img3}`} alt="accuiel" />
 
         </figure>
         </Link>
@@ -67,8 +67,8 @@ const CompoAccueilLeft = () => {
       <div className="sept  ">7</div>
       <div className="huit ">
         <Link to="/peinture">
-          <figure className="  overflow-hidden">
-            <img className="h-full object-cover " src={`${URLImageAccueil}${article.img2}`} alt={article.id} />
+          <figure className=" scrollAnim overflow-hidden">
+            <img className="h-full object-cover scrollAnim " src={`${URLImageAccueil}${article.img2}`} alt={article.id} />
 
           </figure>
 
@@ -76,9 +76,9 @@ const CompoAccueilLeft = () => {
       </div>
       <div className="neuf  flex justify-center">
         <Link to="/digital">
-        <figure className=" overflow-hidden">
+        <figure className="scrollAnim overflow-hidden">
 
-          <img className="h-full object-cover" src={`${URLImageAccueil}${article.img5}`} alt={article.id} />
+          <img className="h-full object-cover scrollAnim" src={`${URLImageAccueil}${article.img5}`} alt={article.id} />
 
         </figure>
         </Link>
@@ -88,9 +88,9 @@ const CompoAccueilLeft = () => {
       <div className="douze border  hidden">12</div>
       <div className="treize border  hidden">13</div>
       <div className="quatorze  ">
-      <figure className=" overflow-hidden">
+      <figure className="scrollAnim overflow-hidden">
       <Link to="/digital">
-        <img className="h-full object-cover" src={`${URLImageAccueil}${article.img4}`}  alt={article.id}/> 
+        <img className="h-full object-cover scrollAnim" src={`${URLImageAccueil}${article.img4}`}  alt={article.id}/> 
 </Link>
       </figure>
 

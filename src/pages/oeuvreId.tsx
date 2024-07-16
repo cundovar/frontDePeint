@@ -11,7 +11,13 @@ import ModalCanape from "../component/oeuvreid/canapemodal";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Breadcrumb from "../component/common/breadcrumb";
+import LikeButton from "../component/common/heart/heart";
 
+
+interface Like {
+  id: number;
+
+}
 interface Post {
   name: string;
   description: string;
@@ -19,6 +25,8 @@ interface Post {
   categorie: string;
   theme: string;
   id: number;
+  likes: Like[];
+
 }
 
 const ArticleDetailPage: React.FC = () => {
@@ -188,6 +196,7 @@ const ArticleDetailPage: React.FC = () => {
                               {showAbsoluteImage && (
                                 <img className="absolute inset-x-1/3 z-50 top-[4%] w-2/12 shadow-2xl shadow-black" src={`${URLimage}/${post.image}`} alt="mini oeuvre" />
                               )}
+                              <LikeButton likesCount={post.likes.length} oeuvreId={post.id}/>
                             </div>
                           )}
                         </div>

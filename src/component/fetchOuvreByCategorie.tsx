@@ -4,6 +4,8 @@ import { URLimage } from "../utils/varaibleFetch";
 import { Link } from "react-router-dom";
 import { UrlPeintureDigital } from "../utils/varaibleFetch";
 import FetchArticles from "../utils/fetcharticle";
+import LikeButton from "./common/heart/heart";
+import { any } from "prop-types";
 
 
 
@@ -13,6 +15,7 @@ interface Props {
   title:string;
   presentation:string;
   text:string
+  
 }
 
 const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentation,text }) => {
@@ -50,8 +53,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
           <div className="flex gap-5 flex-wrap justify-center items-center ">
             {[1, 2, 3, 4].map((index) => (
               <div key={index} className=" gap-2 w-96 h-96">
-                {/* <Skeleton variant="text" sx={{ bgcolor: 'grey.900' }} />
-                <Skeleton variant="text" sx={{ bgcolor: 'grey.900' }} /> */}
+           
                 <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={350} height={300} />
               </div>
             ))}
@@ -62,33 +64,25 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
               <div>
                 {/* <p>titre: {article.name}</p> */}
                 
-                <div className='hover01 p-2 cursor-pointer  '>
-                  <Link to={`/oeuvre/${article.id}`}>
+                <div className='hover01 scrollAnim  p-2 cursor-pointer  '>
             
-                  <figure className=" overflow-hidden">
+                  <figure className=" relative scrollAnim   overflow-hidden">
+                  <Link to={`/oeuvre/${article.id}`}>
                   <img
                     style={{ width: '20rem' }}
                     alt={article.name}
                     src={`${URLimage}/${article.image}`}
-                    className=" hover:opacity-75 "
+                    className=" scrollAnim  hover:opacity-75 "
                   />
+                  </Link>
+                    <LikeButton likesCount={article.likes.length} oeuvreId={article.id} />
 
                   </figure>
                   
 
-                  </Link>
                 </div>
               </div>
-              {/* <div className="">
-                {article.description ? (
-                    <p> description : {article.description} </p>
-                ):(
-                  <div>
-                  <p> Cette oeuvre n'a pas de description</p>
-
-                  </div>
-                )}
-              </div> */}
+       
             </li>
           ))
         )}

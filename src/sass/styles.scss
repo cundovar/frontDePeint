@@ -32,3 +32,39 @@ body{
     font-family: "Monoton", sans-serif;
 }
 
+@supports (animation-timeline: view()) {
+    @property --opacity {
+      syntax: "<number>";
+      inherits: true;
+      initial-value: 1;
+    }
+  
+    @property --min-opacity {
+      syntax: "<number>";
+      inherits: true;
+      initial-value: 1;
+    }
+  
+    @keyframes top-proximity {
+      0% { --min-opacity: 1; }
+      100% { --min-opacity: 0; }
+    }
+  
+    @keyframes y-distribution {
+      0% { --opacity: 0.3; }
+      25% { --opacity: 1; }
+      75% { --opacity: 1; }
+      100% { --opacity: 0.3; }
+    }
+  }
+  
+  .scrollAnim {
+    --min-opacity: var(--is-top) * var(--top-min-opacity) + (1 - var(--is-top)) * var(--bottom-min-opacity);
+    opacity: max(var(--opacity), var(--min-opacity));
+    animation: y-distribution ease-in-out reverse both,
+               top-proximity ease-in-out reverse both,
+               bottom-proximity ease-in-out reverse both;
+    animation-timeline: view(), scroll(), scroll();
+    animation-range: normal, 0% 3rem, calc(100% - 3rem) 100%;
+  }
+  
