@@ -71,7 +71,7 @@ const ArticleDetailPage: React.FC = () => {
     if (!isNaN(postId)) {
       fetchPost(postId);
     }
-  }, [params.id]);
+  }, [params.id]);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 
   const handleClickImage = (imageUrl: string) => {
     setSelectedImage(imageUrl);
@@ -96,7 +96,7 @@ const ArticleDetailPage: React.FC = () => {
   }, [selectedImage]);
 
   return (
-    <section className={`${isLoading && "flex items-center justify-center h-full "} h-full max-xl:absolute overflow-hidden relative    max-xl:flex-col-reverse max-xl:flex max-xl:mt-20 `}>
+    <section className={`${isLoading && "flex items-center justify-center h-full "} h-full max-xl:absolute overflow-hidden relative  w-full   max-xl:flex-col-reverse max-xl:flex max-xl:mt-20 `}>
 
       {post && (
         <Breadcrumb categoryName={categoryName} id={post.id} Name={post.name} />
@@ -149,7 +149,7 @@ const ArticleDetailPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="w-4/12 xl:h-1/2 max-xl:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-xl:relative flex items-start bottom-0 left-0 ">
-                  <div className="2xl:w-10/12 m-auto h-full relative max-xl:overflow-hidden borde max-xl:w-full ">
+                  <div className="2xl:w-10/12 m-auto h-full relative max-xl:overflow-hidden  max-xl:w-full ">
                     <div className="absolute w-2/3 top-20 -right-1/2">
                       <img className="svg-icon" src="/images/background/tache.svg" alt="style" />
                     </div>
@@ -165,7 +165,7 @@ const ArticleDetailPage: React.FC = () => {
 
                   </div>
                 </div>
-                <div className="w-8/12 xl:h-full flex max-xl:pb-96 max-xl:w-full xl:items-center  xl:justify-center absolute max-h-full right-0 max-xl:relative">
+                <div className="w-8/12 xl:h-full  flex max-xl:pb-96 max-xl:w-full xl:items-center  xl:justify-center absolute max-h-full right-0 max-xl:relative">
                   <div className=" max-xl:hidden  ">
                     <div className=" space-y-3  left-1/3 max-xl:hidden">
                       <div className="h-16 w-16  image overflow-hidden cursor-pointer" onClick={() => handleClickImage(`${URLimage}/${post.image}`)}>
@@ -177,18 +177,18 @@ const ArticleDetailPage: React.FC = () => {
 
                     </div>
                   </div>
-                  <div className="flex h-full   max-xl:flex-col justify-center items-center">
+                  <div className="flex h-full  m-auto  max-xl:flex-col justify-center items-center">
                     <article className=" lg:h-full w-full   ">
-                      <div className=" h-full w-full p-5 m-auto flex max-xl:flex-col max-xl:w-full max-lg:flex max-lg:items-center">
-                        <div className=" h-full w-full flex  relative justify-center items-start cursor-pointer max-xl:w-full">
+                      <div className=" h-full w-full p-5 m-auto flex max-xl:flex-col max-xl:w-full  max-xl:items-center">
+                        <div className=" h-full w-full flex  relative justify-center items-start  cursor-pointer max-xl:w-full">
                           {isLoading ? (
                             <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={800} height={700} />
 
                           ) : (
-                            <div className="h-full w-full  flex items-start justify-start">
+                            <div className="h-full w-full  flex items-start  justify-start">
 
                               <img
-                                className=" relative object-cover  w-full zoom h-full"
+                                className=" relative  object-cover  w-full zoom h-full"
                                 src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
                                 alt="oeuvre_id"
                                 onClick={openModal}
@@ -196,7 +196,7 @@ const ArticleDetailPage: React.FC = () => {
                               {showAbsoluteImage && (
                                 <img className="absolute inset-x-1/3 z-50 top-[4%] w-2/12 shadow-2xl shadow-black" src={`${URLimage}/${post.image}`} alt="mini oeuvre" />
                               )}
-                              <LikeButton likesCount={post.likes.length} oeuvreId={post.id}/>
+                              <LikeButton likesCount={post.likes ? post.likes.length :0} oeuvreId={post.id}/>
                             </div>
                           )}
                         </div>

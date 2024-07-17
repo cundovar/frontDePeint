@@ -75,7 +75,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
                     className=" scrollAnim  hover:opacity-75 "
                   />
                   </Link>
-                    <LikeButton likesCount={article.likes.length} oeuvreId={article.id} />
+                    <LikeButton likesCount={article.likes ? article.likes.length : 0} oeuvreId={article.id} />
 
                   </figure>
                   

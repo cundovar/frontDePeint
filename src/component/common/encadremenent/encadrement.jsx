@@ -12,13 +12,13 @@ return(
         <Skeleton sx={{ bgcolor: 'grey.900' }}  variant="text"/>
 
     ):(
-        <div className="m-10">
+        <div className="m-10 max-xl:flex justify-end ">
     
-        <p>
-        <span className="mt-1 bg-gradient-to-r  from-cyan-600 p-1">
+        <p className="  ">
+        <span className="mt-1  bg-gradient-to-r  from-cyan-600 p-1">
              {name}
         </span> :
-        <span className="ml-2">{url}   </span>
+        <span className="ml-2 ">{url}   </span>
      </p>
 
         </div>
