@@ -3,6 +3,8 @@ import CompoAccueilLeft from "../component/compoAccueil/compoAccueilLeft";
 import { URLPageAccueil } from "../utils/varaibleFetch";
 import axios from "axios";
 import Breadcrumb from "../component/common/breadcrumb";
+import CookieManager from "../utils/cookiesManager";
+import CookieConsent from "../component/accueil/cookiesConsent";
 
 export default function Accueil() {
   const [article, setARticle] = useState("");
@@ -19,7 +21,9 @@ export default function Accueil() {
   });
 
   return (
-    <div className="overflow-hidden max-xl:mt-10 h-full">
+    <>
+    
+    <div className="overflow-hidden max-xl:mt-10  w-full h-full">
       <Breadcrumb />
     <section className="w-11/12  flex absolute  max-xl:flex-col-reverse overflow-y-scroll    max-xl:mt-10 max-xl:pb-96 h-full max-xl:w-full  total right-0 ">
     
@@ -39,13 +43,19 @@ export default function Accueil() {
         <CompoAccueilLeft />
       </article>
 
-     
-
 
 
     </section>
 
 
+
     </div>
+     <div className=" absolute bottom-0">
+
+     <CookieManager/>
+     <CookieConsent/>
+     </div>
+    
+    </>
   );
 }
