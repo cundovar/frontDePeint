@@ -50,11 +50,11 @@ export default function Accueil() {
 
 
     </div>
-     <div className=" absolute bottom-0">
+    
 
      <CookieManager/>
      <CookieConsent/>
-     </div>
+    
     
     </>
   );
