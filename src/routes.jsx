@@ -10,6 +10,7 @@ import APropos from "./pages/aPropos";
 
 
 import MovingDivs from './component/accueil/mouvDiv';
+import CookieConsent from './component/accueil/cookiesConsent';
 
 
 const RoutesPage = () => {
@@ -49,7 +50,7 @@ const RoutesPage = () => {
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/apropos" element={<APropos />} />
                         </Routes>
-
+<CookieConsent/>
                     </div>
                 </div>
             </Router>

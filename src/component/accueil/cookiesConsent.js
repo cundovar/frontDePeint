@@ -25,7 +25,7 @@ return ()=>clearTimeout(timer)
   };
 
   const handleDecline = () => {
-    Cookies.set('cookieConsent', 'declined', { expires: 365 });
+    Cookies.set('cookieConsent', 'declined', { expires: 1 });
     setShowPopup(false);
   };
 

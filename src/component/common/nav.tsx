@@ -44,7 +44,7 @@ export const Header = () => {
           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
         </svg>
       </button>
-      <div id="mega-menu-full " className={`max-sm:mt-20 max-xl:mt-24 p-2 rounded-xl bg-gradient-to-r from-cyan-600 items-center justify-between font-medium ${isMenuOpen ? 'flex' : 'hidden'} w-full xl:flex md:w-auto md:order-1 mt-2`}>
+      <div id="mega-menu-full " className={`max-sm:mt-20 max-xl:mt-24 p-2 rounded-xl bg-gradient-to-r from-cyan-600 max-xl:to-blue-500 items-center justify-between font-medium ${isMenuOpen ? 'flex' : 'hidden'} w-full xl:flex md:w-auto md:order-1 mt-2`}>
         <ul className='flex flex-col w-full space-y-5  border-orange-400'>
           <li className={`text-2xl ${activeIndex === 0 ? 'active:bg-cyan-800  border-b border-t' : ''} trux border-t-emerald-200`}>
             <Link onClick={toggleMenu} to="/">Accueil</Link>

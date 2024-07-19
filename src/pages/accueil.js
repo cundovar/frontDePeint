@@ -3,8 +3,8 @@ import CompoAccueilLeft from "../component/compoAccueil/compoAccueilLeft";
 import { URLPageAccueil } from "../utils/varaibleFetch";
 import axios from "axios";
 import Breadcrumb from "../component/common/breadcrumb";
-import CookieManager from "../utils/cookiesManager";
-import CookieConsent from "../component/accueil/cookiesConsent";
+
+
 
 export default function Accueil() {
   const [article, setARticle] = useState("");
@@ -52,8 +52,8 @@ export default function Accueil() {
     </div>
     
 
-     <CookieManager/>
-     <CookieConsent/>
+
+   
     
     
     </>

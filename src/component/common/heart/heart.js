@@ -7,7 +7,9 @@ const LikeButton = ({ likesCount, oeuvreId }) => {
   const [internalLikesCount, setInternalLikesCount] = useState(likesCount);
   const [liked, setLiked] = useState(false);
   const [cookiesAllowed, setCookiesAllowed] = useState(null);
-
+// Cookies : Si les cookies sont acceptés, les likes sont stockés dans les cookies.
+// LocalStorage : Si les cookies ne sont pas acceptés, les likes sont stockés dans localStorage. Notez que localStorage est moins sécurisé et persistant que les cookies.
+// Cette solution réduit les clics multiples sur le bouton de like en utilisant le stockage local du navigateur. Cependant, pour une sécurité et une fiabilité maximales, surtout dans un contexte d'utilisateur non authentifié, une gestion côté serveur avec une forme d'identification serait préférable.
   useEffect(() => {
     const consent = Cookies.get('cookieConsent');
     setCookiesAllowed(consent === 'accepted');

@@ -26,7 +26,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
 
   
   return (
-    <div className="overflow-y-scroll max-xl:flex max-xl:flex-wrap h-full max-xl:over pb-96">
+    <div className="overflow-y-scroll max-xl:flex max-xl:flex-wrap max-xl:mt-20 h-full max-xl:over pb-96">
 
 
     <div className=" flex max-xl:flex-col max-xl:w-full max-sm:hidden  max-xl:justify-center max-xl:items-center   xl:w-4/12 h-1/2 xl:absolute left-0 top-0 ">
@@ -37,15 +37,15 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
           </div>
     </div>
 
-     <div className="xl:w-5/12 md:w-1/2 2xl:w-4/12 lg:h-1/2  w-full  xl:absolute max-sm:relative  max-sm:justify-end xl:mb-20 2xl:mb-0  text_left flex xl:justify-center xl:items-center bottom-0 left-0  lg:p-16 max-sm:w-full" >
-      <div className="max-sm:w-3/4  ">
+     <div className="xl:w-5/12 md:w-1/2 2xl:w-4/12 w-full max-xl:mb-10  xl:absolute max-sm:relative  max-sm:justify-end xl:mb-20 2xl:mb-0  text_left flex xl:justify-center xl:items-center bottom-0 left-0  lg:p-16 max-sm:w-full" >
+      <div className="">
        <h1 className="text-2xl border-b-8 rounded-lg border-cyan-700"> {presentation} </h1>
        <p>{text} </p>
         
       </div>
      </div>
 
-     <div className=" xl:absolute  right-0 xl:w-8/12 lg:h-full text_right max-lg:w-full md:w-1/2 max-sm:relative   xl:overflow-y-scroll">
+     <div className=" xl:absolute  right-0 xl:w-8/12 xl:h-full text_right max-lg:w-full md:w-1/2 max-sm:relative  xl:overflow-y-scroll">
 
       <div className="text-4xl sm:invisible  font-title">{title}  </div>
       <ul className='flex  flex-wrap h-full w-full  justify-center items-end '>
@@ -87,6 +87,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
           ))
         )}
       </ul>
+      <div className="h-96"></div>
      </div>
 
 
