@@ -28,8 +28,8 @@ const CompoAccueilLeft = () => {
     return <div>Chargement...</div>;
   }
   return (
-    <div className="article_left xl:h-full lg:pb-96 sm:mb-[45rem] max-sm:pb-0  relative  hover14 ">
-          <div className="h-full  w-1/3 flex justify-start   items-start absolute mb-3 left-0 -top-8 sm:hidden ">
+    <div className="article_left xl:h-full  2xl:mb-[10rem] max-sm:pb-0  relative hover14 ">
+          <div className="  w-1/3 flex justify-start   items-start absolute mb-3 left-0 -top-8 sm:hidden ">
           <h2 className="2xl:text-8xl xl:text-6xl  mb-2  vertical ">ART</h2>
         </div>
       <div className="one    ">
@@ -78,7 +78,7 @@ const CompoAccueilLeft = () => {
         <Link to="/digital">
         <figure className="scrollAnim overflow-hidden">
 
-          <img className="h-full object-cover scrollAnim" src={`${URLImageAccueil}${article.img5}`} alt={article.id} />
+          <img className=" object-cover scrollAnim" src={`${URLImageAccueil}${article.img5}`} alt={article.id} />
 
         </figure>
         </Link>
@@ -90,7 +90,7 @@ const CompoAccueilLeft = () => {
       <div className="quatorze  ">
       <figure className="scrollAnim overflow-hidden">
       <Link to="/digital">
-        <img className="h-full object-cover scrollAnim" src={`${URLImageAccueil}${article.img4}`}  alt={article.id}/> 
+        <img className="h-full w-full object-contain scrollAnim" src={`${URLImageAccueil}${article.img4}`}  alt={article.id}/> 
 </Link>
       </figure>
 

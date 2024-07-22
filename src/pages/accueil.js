@@ -3,6 +3,7 @@ import CompoAccueilLeft from "../component/compoAccueil/compoAccueilLeft";
 import { URLPageAccueil } from "../utils/varaibleFetch";
 import axios from "axios";
 import Breadcrumb from "../component/common/breadcrumb";
+import PopularOeuvres from "../component/accueil/popularOeuvre";
 
 
 
@@ -41,11 +42,15 @@ export default function Accueil() {
       
       <article className="   relative  w-full scroll  xl:w-8/12 xl:overflow-y-scroll    text_right">
         <CompoAccueilLeft />
+      <article className="max-sm:mb-36">
+        <PopularOeuvres/>
+      </article>
       </article>
 
 
 
     </section>
+
 
 
 
