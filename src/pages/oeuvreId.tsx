@@ -140,7 +140,7 @@ const ArticleDetailPage: React.FC = () => {
             post && (
               <div className=" lg:h-full  relative w-full overflow-y-scroll max-lg:pb-96  ">
 
-                <div className=" w-4/12 h-1/2 flex   max-xl:flex-col absolute max-xl:w-full z-40">
+                <div className=" w-4/12 h-1/2 flex    max-xl:flex-col absolute max-xl:w-full z-40">
                   <h3 className="text-4xl flex justify-start font-title max-sm:text-2xl max-xl:visible hidden max-lg:text-4xl">{post.name}</h3>
                   <div className="w-1/2"></div>
                   <div className="w-1/2 flex items-center flex-col justify-center">
@@ -148,7 +148,7 @@ const ArticleDetailPage: React.FC = () => {
                     <h3 className="text-4xl max-md:hidden flex justify-center font-title max-md:text-2xl max-lg:text-4xl">{post.name}</h3>
                   </div>
                 </div>
-                <div className="w-4/12 xl:h-1/2 max-xl:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-xl:relative flex items-start bottom-0 left-0 ">
+                <div className="w-4/12 xl:h-1/2 max-xl:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-xl:relative bottom-0 left-0 ">
                   <div className="2xl:w-10/12 m-auto h-full relative max-xl:overflow-hidden  max-xl:w-full ">
                     <div className="absolute w-2/3 top-20 -right-1/2">
                       <img className="svg-icon" src="/images/background/tache.svg" alt="style" />

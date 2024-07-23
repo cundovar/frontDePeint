@@ -28,8 +28,8 @@ height: 60rem;
       height: 100rem;
     }
     @media screen and (max-width: 1535px) {
-      
-      height: 100rem;
+      overflow: hidden;
+      heigh:50rem;
       grid-gap: 0.5rem;
     }
 
@@ -41,6 +41,15 @@ fill: red !important;
     writing-mode: vertical-lr; /* ou vertical-lr selon l'orientation désirée */
     text-orientation: upright;
     letter-spacing: -3rem;
+    font-family: "Monoton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .verticalPopular{
+    
+    writing-mode: vertical-lr; /* ou vertical-lr selon l'orientation désirée */
+    text-orientation: upright;
+    letter-spacing: 0.2rem;
     font-family: "Monoton", sans-serif;
     font-weight: 400;
     font-style: normal;

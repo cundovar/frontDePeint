@@ -17,7 +17,7 @@ const RoutesPage = () => {
 
 
     return (
-        <div className="w-full h-dvh   flex flex-col   justify-center max-md:p-3  ">
+        <div className=" h-dvh   flex flex-col   justify-center  ">
             <Router>
                 <div className="flex   max-w-screen ">
 

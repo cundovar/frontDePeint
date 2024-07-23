@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { URLimage, urlBase, urlBase1 } from "../../utils/varaibleFetch";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import LikeButton from "../common/heart/heart";
 const ArticleItem = ({ article }) => {
   const [show, setShow] = useState(false);
 
@@ -12,24 +13,31 @@ const ArticleItem = ({ article }) => {
 
 
   return (
-    <div className="realtive  h-96 -200 ">
+    <div className="relative  h-96  ">
 
     <Link   onMouseEnter={onEnter}
     onMouseLeave={onLeave} to={`/oeuvre/${article.id}`}>
    
+        <LikeButton likesCount={article.likes } oeuvreId={article.id} />
         <img
           className=" w-full m-auto object-contain h-full "
           src={`${URLimage}/${article.image}`}
           alt={article.name}
         />
+        <div className="  absolute top-2 left-1 max-sm:border max-sm:bg-gray-800 max-sm:p-2 rounded-md">
+            <h3 className="  verticalPopular">{article.name} </h3></div>
         <div
           style={{
             transition: "transform 0.3s ease-in-out",
           }}
           className={`absolute  flex items-center justify-center   ${show ? "inset-x-0 bottom-5" : "hidden -bottom-10"}`}
         >
-          <span className="bg-white text-black bg-opacity-75 p-2 rounded">
-            {article.name}{" "}
+          <span className="bg-white  text-black bg-opacity-75 p-2 rounded">
+            
+
+            {article.description}
+            
+           
           </span>
         </div>
   
@@ -80,9 +88,9 @@ const PopularOeuvres = () => {
 
   return (
     <>
-      <h1 className="text-5xl mb-10 font-title max-sm:mt-10 ">Oeuvres Populaires</h1>
+      <h1 className="text-5xl mb-10 max-xl:mt-5 font-title max-sm:mt-10 ">Oeuvres Populaires</h1>
 
-      <Slider {...settings} className=" m-auto xl:w-2/3 ">
+      <Slider {...settings} className=" m-auto lg:w-2/3 w-5/6 ">
         {articles.map((article) => (
           <ArticleItem key={article.id} article={article} />
         ))}
