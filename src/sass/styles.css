@@ -23,6 +23,11 @@ body {
   z-index: 1000 !important;
 }
 
+.title_acccueil {
+  color: #f9dbf3;
+  text-shadow: 0 0 7px #f9dbf3, 0 0 10px #f9dbf3, 0 0 21px #f9dbf3, 0 0 42px #f94dd4, 0 0 82px #f94dd4, 0 0 92px #f94dd4, 0 0 102px #f94dd4, 0 0 151px #f425c7;
+}
+
 .breadcumb-item {
   font-family: "Monoton", sans-serif;
 }

@@ -25,8 +25,8 @@ const ArticleItem = ({ articles }) => {
                     src={`${URLimage}/${articles.image}`}
                     alt={articles.name}
                 />
-                <div className="absolute xl:top-0 xl:left-1 left-0 top-2 border bg-gray-800 p-2 rounded-md">
-                    <h3 className="verticalPopular">{articles.name}</h3>
+                <div className="absolute top-1/2 transform -translate-y-1/2   border text-shadow 0  bg-gray-800 p-2 rounded-md">
+                    <h3 className="verticalPopular title_acccueil">{articles.name}</h3>
                 </div>
                 <div
                     style={{

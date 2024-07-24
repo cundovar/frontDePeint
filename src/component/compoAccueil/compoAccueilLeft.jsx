@@ -64,7 +64,7 @@ const CompoAccueilLeft = () => {
         </Link>
       </div>
       <div className="five "></div>
-      <div className="sept  ">7</div>
+      <div className="sept  "></div>
       <div className="huit ">
         <Link to="/peinture">
           <figure className=" scrollAnim overflow-hidden">

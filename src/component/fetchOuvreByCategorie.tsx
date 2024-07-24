@@ -33,7 +33,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
           <div className="w-4/12 "></div>
           <div className="w-8/12  space-y-5 max-lg:justify-end max-sm:flex-row max-sm:w-full flex flex-col justify-center items-center ">
       
-            <div className="text-6xl  max-sm:invisible font-title">{title} </div>
+            <div className="text-6xl title_acccueil max-sm:invisible font-title">{title} </div>
           </div>
     </div>
 
@@ -47,7 +47,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
 
      <div className=" xl:absolute  right-0 xl:w-8/12 xl:h-full text_right max-lg:w-full md:w-1/2 max-sm:relative  xl:overflow-y-scroll">
 
-      <div className="text-4xl sm:invisible  font-title">{title}  </div>
+      <div className="text-4xl sm:invisible title_acccueil font-title">{title}  </div>
       <ul className='flex  flex-wrap h-full w-full  justify-center items-end '>
         {isLoading ? (
           <div className="flex gap-5 flex-wrap justify-center items-center ">
