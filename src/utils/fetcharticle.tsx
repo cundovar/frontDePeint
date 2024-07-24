@@ -15,6 +15,7 @@ const FetchArticles=(url: string, categorieUrl?: string)=> {
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
         const response = await axios.get(url);
         const filteredArticles = response.data['hydra:member'].filter((article: Article) => {

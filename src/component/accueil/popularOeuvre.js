@@ -13,7 +13,7 @@ const ArticleItem = ({ article }) => {
 
 
   return (
-    <div className="relative  h-96  ">
+    <div className="relative   h-96  ">
 
     <Link   onMouseEnter={onEnter}
     onMouseLeave={onLeave} to={`/oeuvre/${article.id}`}>
@@ -24,7 +24,7 @@ const ArticleItem = ({ article }) => {
           src={`${URLimage}/${article.image}`}
           alt={article.name}
         />
-        <div className="  absolute top-2 left-1 max-sm:border max-sm:bg-gray-800 max-sm:p-2 rounded-md">
+        <div className="  absolute xl:top-0 xl:left-1 left-0 top-2  border bg-gray-800 p-2 rounded-md">
             <h3 className="  verticalPopular">{article.name} </h3></div>
         <div
           style={{
@@ -48,7 +48,7 @@ const ArticleItem = ({ article }) => {
   );
 };
 const PopularOeuvres = () => {
-  const [articles, setArticles] = useState([]);
+  const [oeuvres, setArticles] = useState([]);
 
   var settings = {
     dots: true,
@@ -90,14 +90,12 @@ const PopularOeuvres = () => {
     <>
       <h1 className="text-5xl mb-10 max-xl:mt-5 font-title max-sm:mt-10 ">Oeuvres Populaires</h1>
 
-      <Slider {...settings} className=" m-auto lg:w-2/3 w-5/6 ">
-        {articles.map((article) => (
-          <ArticleItem key={article.id} article={article} />
+      <Slider {...settings} className=" m-auto lg:w-2/3 w-5/6 xl:w-96  ">
+        {oeuvres.map((oeuvre) => (
+          <ArticleItem key={oeuvre.id} article={oeuvre} />
         ))}
           </Slider>
 
-
-    
     </>
   );
 };

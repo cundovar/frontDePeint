@@ -4,10 +4,18 @@ import { URLPageAccueil } from "../utils/varaibleFetch";
 import axios from "axios";
 import Breadcrumb from "../component/common/breadcrumb";
 import PopularOeuvres from "../component/accueil/popularOeuvre";
+import CarouselCategories from "../component/accueil/carouselCategorie";
 
 
 
 export default function Accueil() {
+  // url et données des categories et titre des corousel categorie 
+  const urldigital="/api/categories/2"
+  const urlpeinture="/api/categories/1"
+  const titleDigital="Digital"
+  const titlePeinture="Peinture"
+
+  
   const [article, setARticle] = useState("");
   useEffect(() => {
     axios
@@ -44,6 +52,12 @@ export default function Accueil() {
         <CompoAccueilLeft />
       <article className="max-sm:mb-36  ">
         <PopularOeuvres/>
+      </article>
+      <article className="max-sm:mb-36  ">
+        <CarouselCategories categorieUrl={urldigital} title={titleDigital}/>
+      </article>
+      <article className="max-sm:mb-36  ">
+        <CarouselCategories categorieUrl={urlpeinture} title={titlePeinture}/>
       </article>
       </article>
 
