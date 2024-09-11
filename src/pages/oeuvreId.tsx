@@ -1,6 +1,7 @@
 import { Skeleton, } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import 'flowbite';
 
 import fetchRelation from "../utils/fetchCategorie";
 import Encadrement from "../component/common/encadremenent/encadrement";
@@ -12,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Breadcrumb from "../component/common/breadcrumb";
 import LikeButton from "../component/common/heart/heart";
+import Coments from "../component/oeuvreid/coment";
 
 
 interface Like {
@@ -162,7 +164,7 @@ const ArticleDetailPage: React.FC = () => {
                     ) : (
                       <p></p>
                     )}
-
+                     <Coments/>
                   </div>
                 </div>
                 <div className="w-8/12 xl:h-full  flex max-xl:pb-96 max-xl:w-full xl:items-center  xl:justify-center absolute max-h-full right-0 max-xl:relative">
