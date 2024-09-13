@@ -37,7 +37,7 @@ const FetchOeuvreByCategorie: React.FC<Props> = ({ categorieUrl,title,presentati
           </div>
     </div>
 
-     <div className="xl:w-5/12 md:w-1/2 2xl:w-4/12 w-full max-xl:mb-10  xl:absolute max-sm:relative  max-sm:justify-end xl:mb-20 2xl:mb-0  text_left flex xl:justify-center xl:items-center bottom-0 left-0  lg:p-16 max-sm:w-full" >
+     <div className="xl:w-5/12  md:w-1/2 2xl:w-4/12 max-xl:mb-10  xl:absolute max-sm:relative  max-sm:justify-end xl:mb-20 2xl:mb-0  text_left flex xl:justify-center xl:items-center bottom-0 left-0  lg:p-16 max-sm:w-full" >
       <div className="">
        <h1 className="text-2xl border-b-8 rounded-lg border-cyan-700"> {presentation} </h1>
        <p>{text} </p>
