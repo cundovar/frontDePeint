@@ -5,12 +5,16 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import CommentService from "cundo-comment-service"
 import Button from '@mui/material/Button';
-import LesCommentaires from "../../pages/lesCommentaires";
+
 import axios from "axios";
+import { useParams } from "react-router-dom";
+
 
 const Coments =()=>{
- const apiUrl = "http://localhost:5000"
+ const apiUrl = "https://nodepeint.varascundo.com"
 
+const {id}=useParams()
+console.log("idPage",id)
 return (
     <>
      <Accordion sx={{backgroundColor: "transparent", color:"white",border:"1px solid "}}>
@@ -24,7 +28,7 @@ return (
         <AccordionDetails sx={{  }}>
           <div className="text-black">
 
-       <CommentService axio={axios} apiUrl={apiUrl}/>
+       <CommentService axio={axios} apiUrl={apiUrl} slug={id}/>
           </div>
         </AccordionDetails>
       </Accordion>

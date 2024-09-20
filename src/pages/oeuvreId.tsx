@@ -164,7 +164,10 @@ const ArticleDetailPage: React.FC = () => {
                     ) : (
                       <p></p>
                     )}
+                    <div className="max-xl:hidden ">
                      <Coments/>
+
+                    </div>
                   </div>
                 </div>
                 <div className="w-8/12 xl:h-full  flex max-xl:pb-96 max-xl:w-full xl:items-center  xl:justify-center absolute max-h-full right-0 max-xl:relative">
@@ -201,6 +204,10 @@ const ArticleDetailPage: React.FC = () => {
                               <LikeButton likesCount={post.likes ? post.likes.length :0} oeuvreId={post.id}/>
                             </div>
                           )}
+                        </div>
+                        <div className="xl:hidden mt-5 pb-96">
+                           <Coments/>
+
                         </div>
                       </div>
                     </article>

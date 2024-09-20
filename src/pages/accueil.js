@@ -41,8 +41,8 @@ export default function Accueil() {
     
       <article className=" relative  xl:w-4/12   min-h-96  max-xl:items-center  left flex flex-col items-end justify-end  ">
      
-        <div className="h-full w-full flex justify-center  items-center invisible xl:visible ">
-          <h2 className="2xl:text-8xl xl:text-6xl title_acccueil  vertical ">ART</h2>
+        <div className="h-full w-full flex justify-center  items-end invisible xl:visible ">
+          <h2 className="2xl:text-8xl xl:text-6xl title_acccueil   ">ART</h2>
         </div>
         <div className="flex h-full items-center xl:justify-end max-xl:w-1/2   text_left max-sm:mt-0 p-3 max-md:pr-3   max-lg:mt-20 max-lg:mr-10 max-md:mr-0 max-md:w-full   ">
           <p className="text-justify 2xl:p-10 text-md xl:p-2 max-sm:p-2  ">
