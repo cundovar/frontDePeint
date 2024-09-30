@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Breadcrumb from "../component/common/breadcrumb";
 import LikeButton from "../component/common/heart/heart";
 import Coments from "../component/oeuvreid/coment";
+import SocialMedia from "../component/oeuvreid/social/socialMedia";
 
 
 interface Like {
@@ -98,7 +99,7 @@ const ArticleDetailPage: React.FC = () => {
   }, [selectedImage]);
 
   return (
-    <section className={`${isLoading && "flex items-center justify-center h-full "} h-full max-xl:absolute overflow-hidden relative  w-full   max-xl:flex-col-reverse max-xl:flex max-xl:mt-20 `}>
+    <section className={`${isLoading && "flex items-center justify-center h-full "} h-full max-xl:absolute overflow-hidden relative m-auto max-xl;w-full xl:w-4/6 border  max-xl:flex-col-reverse max-xl:flex max-xl:mt-20 `}>
 
       {post && (
         <Breadcrumb categoryName={categoryName} id={post.id} Name={post.name} />
@@ -171,29 +172,20 @@ const ArticleDetailPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="w-8/12 xl:h-full  flex max-xl:pb-96 max-xl:w-full xl:items-center  xl:justify-center absolute max-h-full right-0 max-xl:relative">
-                  <div className=" max-xl:hidden  ">
-                    <div className=" space-y-3  left-1/3 max-xl:hidden">
-                      <div className="h-16 w-16  image overflow-hidden cursor-pointer" onClick={() => handleClickImage(`${URLimage}/${post.image}`)}>
-                        <img className="object-cover" src={`${URLimage}/${post.image}`} alt="img-id" />
-                      </div>
-                      <div className="h-16 w-16  bg-stone-200 cursor-pointer" onClick={() => handleClickImage('../images/large.jpg')}>
-                        <img className="object-cover logo" src="../images/logo/canape.webp" alt="logo-canape" />
-                      </div>
-
-                    </div>
-                  </div>
-                  <div className="flex h-full  m-auto  max-xl:flex-col justify-center items-center">
-                    <article className=" lg:h-full w-full   ">
-                      <div className=" h-full w-full p-5 m-auto flex max-xl:flex-col max-xl:w-full  max-xl:items-center">
-                        <div className=" h-full w-full flex  relative justify-center items-start  cursor-pointer max-xl:w-full">
+                 
+                  
+                  <div className="flex border w-full  h-full  m-auto  max-xl:flex-col justify-center items-center">
+                    <article className="  w-2/3 border  ">
+                      <div className=" h-full w-full p-5 m-auto  max-xl:flex-col max-xl:w-full  max-xl:items-center">
+                        <div className=" h-full  flex  relative justify-center items-start  cursor-pointer max-xl:w-full">
                           {isLoading ? (
                             <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" width={800} height={700} />
 
                           ) : (
-                            <div className="h-full w-full  flex items-start  justify-start">
+                            <div className="  flex items-start  justify-start">
 
                               <img
-                                className=" relative  object-cover  w-full zoom h-full"
+                                className=" relative  object-cover w-full zoom "
                                 src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
                                 alt="oeuvre_id"
                                 onClick={openModal}
@@ -209,12 +201,17 @@ const ArticleDetailPage: React.FC = () => {
                            <Coments/>
 
                         </div>
+                          <SocialMedia postImage={post.image}
+                                       URLimage={URLimage} 
+                                       onclick={() => handleClickImage(`${URLimage}/${post.image}`)}
+                                       onclick2={() => handleClickImage('../images/large.jpg')}
+                                       />
                       </div>
                     </article>
                   </div>
                 </div>
                 {modalOpen && (
-                  <div className="max-sm:hidden flex items-center h-full justify-center absolute bg-opacity-25 bg-stone-900 backdrop-blur-sm z-50 w-full">
+                  <div className="max-sm:hidden flex items-center h-full justify-center absolute bg-opacity-25 bg-sto backdrop-blur-sm z-50 w-full">
                     <Modal image={`${URLimage}/${post.image}`} image2={<ModalCanape imagecanap={`${URLimage}/${post.image}`} />} closeModal={closeModal} />
                   </div>
                 )}

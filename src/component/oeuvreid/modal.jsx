@@ -37,7 +37,7 @@ const Modal = ({ closeModal, image, image2 }) => {
       </span>
 
       <div className=" relative h-full  ">
-        <Slider {...settings} ref={sliderRef} className="bg-stone-700 h-full  f ">
+        <Slider {...settings} ref={sliderRef} className="bh-full  f ">
           <div className="  h-full w-full f flex justify-center items-center  ">
 
             <img className=" 2xl:h-[40rem]  max-2xl:h-96 " src={image} alt="img-modal" />
