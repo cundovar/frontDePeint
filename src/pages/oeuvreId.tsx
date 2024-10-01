@@ -2,13 +2,13 @@ import { Skeleton, } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import 'flowbite';
-
+import { Helmet } from 'react-helmet';
 import fetchRelation from "../utils/fetchCategorie";
 import Encadrement from "../component/common/encadremenent/encadrement";
 import { URLOeuvreId, URLimage } from "../utils/varaibleFetch";
 import Modal from "../component/oeuvreid/modal";
 import ModalCanape from "../component/oeuvreid/canapemodal";
-
+import EmojiFlagsIcon from '@mui/icons-material/EmojiFlags';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Breadcrumb from "../component/common/breadcrumb";
@@ -41,7 +41,7 @@ const ArticleDetailPage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [modalOpen, setModalOpen] = useState(false);
   const [show, setShow] = useState(false)
-
+  const pageUrl=window.location.href
   const openModal = () => {
     setModalOpen(true);
   };
@@ -74,7 +74,7 @@ const ArticleDetailPage: React.FC = () => {
     if (!isNaN(postId)) {
       fetchPost(postId);
     }
-  }, [params.id]);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+  }, [params.id]);
 
   const handleClickImage = (imageUrl: string) => {
     setSelectedImage(imageUrl);
@@ -99,7 +99,7 @@ const ArticleDetailPage: React.FC = () => {
   }, [selectedImage]);
 
   return (
-    <section className={`${isLoading && "flex items-center justify-center h-full "} h-full max-xl:absolute overflow-hidden relative m-auto max-xl;w-full xl:w-4/6 border  max-xl:flex-col-reverse max-xl:flex max-xl:mt-20 `}>
+    <section className={`${isLoading && "flex items-center justify-center h-full "}  h-full max-xl:absolute overflow-hidden relative m-auto max-xl;w-full 2xl:w-10/12 xl:w-11/12  max-xl:flex-col-reverse max-xl:flex max-xl:mt-20 `}>
 
       {post && (
         <Breadcrumb categoryName={categoryName} id={post.id} Name={post.name} />
@@ -109,6 +109,22 @@ const ArticleDetailPage: React.FC = () => {
 
       {isLoading ? (
         <>
+          <Helmet>
+                {/* Balises Open Graph */}
+                {post && (
+                  <>
+                  
+                  <meta property="og:title" content={post.name} />
+                  <meta property="og:description" content="post.description" />
+                  <meta property="og:image" content={post.image} />
+                  <meta property="og:url" content={pageUrl} />
+                  <meta property="og:type" content="website" />
+                  
+                  </>
+
+
+                ) }
+            </Helmet>
 
           <div className="flex justify-center items-center">
 
@@ -127,7 +143,7 @@ const ArticleDetailPage: React.FC = () => {
 
         <>
 
-          <div className={`${show && "hidden"}  w-full h-full   flex justify-center items-center`}>
+          <div className={`${show && "hidden"}  w-full h-full  flex justify-center items-center`}>
             <div role="status">
               <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
@@ -141,41 +157,42 @@ const ArticleDetailPage: React.FC = () => {
 
 
             post && (
-              <div className=" lg:h-full  relative w-full overflow-y-scroll max-lg:pb-96  ">
+              <div className=" lg:h-full b relative w-full m-auto   overflow-y-scroll max-lg:pb-96  ">
 
-                <div className=" w-4/12 h-1/2 flex    max-xl:flex-col absolute max-xl:w-full z-40">
-                  <h3 className="text-4xl flex justify-start font-title max-sm:text-2xl max-xl:visible hidden max-lg:text-4xl">{post.name}</h3>
-                  <div className="w-1/2"></div>
-                  <div className="w-1/2 flex items-center flex-col justify-center">
-                    <p className="text-gray-50"></p>
-                    <h3 className="text-4xl max-md:hidden flex justify-center font-title max-md:text-2xl max-lg:text-4xl">{post.name}</h3>
+                <div className=" w-4/12  xl:h-1/2 flex   max-xl:flex-col max-xl:relative absolute max-xl:w-full z-40">
+                  <h3 className="text-4xl justify-start font-title max-sm:text-2xl max-xl:visible hidden max-lg:text-4xl">{post.name}</h3>
+
+                  <div className=" flex items-center  w-full flex-col justify-center">
+
+                    <h3 className="text-4xl flex justify-center font-title max-md:text-2xl mb-10 max-lg:text-4xl">{post.name}</h3>
+                    <div className="text-3xl ml-20 title_acccueil font-light   p-2 max-sm:text-xl  ">
+                      {post.description}
+                    </div>
                   </div>
                 </div>
-                <div className="w-4/12 xl:h-1/2 max-xl:w-full  xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-xl:relative bottom-0 left-0 ">
-                  <div className="2xl:w-10/12 m-auto h-full relative max-xl:overflow-hidden  max-xl:w-full ">
+                <div className="w-4/12 xl:h-1/2 max-xl:w-full xl:mb-5 xl:ml-5 2xl:mb-0 2xl:ml-0 absolute max-xl:relative bottom-0 left-0 ">
+
+                  <div className="2xl:w-10/12 m-auto h-full relative max-xl:overflow-hidden max-xl:flex max-sm:block max-xl:w-full ">
                     <div className="absolute w-2/3 top-20 -right-1/2">
                       <img className="svg-icon" src="/images/background/tache.svg" alt="style" />
                     </div>
-                    <Encadrement name="titre" url={post.name} isloading={isLoading} />
+
+                    <Encadrement name="titre " url={post.name} isloading={isLoading} />
                     <Encadrement name="catégorie" url={categoryName} isloading={isLoading} />
                     <Encadrement name="thème" url={themeName} isloading={isLoading} />
-             
-      {post.description ? (
-                      <Encadrement name="description" url={post.description} isloading={isLoading} />
-                    ) : (
-                      <p></p>
-                    )}
+
+
                     <div className="max-xl:hidden ">
-                     <Coments/>
+                      <Coments />
 
                     </div>
                   </div>
                 </div>
                 <div className="w-8/12 xl:h-full  flex max-xl:pb-96 max-xl:w-full xl:items-center  xl:justify-center absolute max-h-full right-0 max-xl:relative">
-                 
-                  
-                  <div className="flex border w-full  h-full  m-auto  max-xl:flex-col justify-center items-center">
-                    <article className="  w-2/3 border  ">
+
+
+                  <div className="flex w-full  h-full  m-auto  max-xl:flex-col justify-center items-center">
+                    <article className="  w-3/3    ">
                       <div className=" h-full w-full p-5 m-auto  max-xl:flex-col max-xl:w-full  max-xl:items-center">
                         <div className=" h-full  flex  relative justify-center items-start  cursor-pointer max-xl:w-full">
                           {isLoading ? (
@@ -185,7 +202,7 @@ const ArticleDetailPage: React.FC = () => {
                             <div className="  flex items-start  justify-start">
 
                               <img
-                                className=" relative  object-cover w-full zoom "
+                                className=" relative  object-cover  h-[35rem]   zoom "
                                 src={selectedImage ? selectedImage : `${URLimage}/${post.image}`}
                                 alt="oeuvre_id"
                                 onClick={openModal}
@@ -193,25 +210,46 @@ const ArticleDetailPage: React.FC = () => {
                               {showAbsoluteImage && (
                                 <img className="absolute inset-x-1/3 z-50 top-[4%] w-2/12 shadow-2xl shadow-black" src={`${URLimage}/${post.image}`} alt="mini oeuvre" />
                               )}
-                              <LikeButton likesCount={post.likes ? post.likes.length :0} oeuvreId={post.id}/>
                             </div>
                           )}
+                              <div className=" space-y-5">
+
+                               <div className=" w-52 h-20 flex flex-col justify-center items-center text-center font-light text-black bg-slate-400 ml-10 border"> <EmojiFlagsIcon fontSize="large"/> oeuvre unique</div>
+                               <div className="w-52 h-20 flex flex-col justify-center items-center text-center font-light text-black bg-slate-400 ml-10 border">Certificat d'authenticité inclus</div>
+                               <div className="w-52 h-20 flex flex-col justify-center items-center text-center font-light text-black bg-slate-400 ml-10 border"> signé par l'artiste</div>
+                               <div className=" w-52 h-20 flex flex-col justify-center items-center text-center font-light text-black bg-slate-400 ml-10 border"> <EmojiFlagsIcon fontSize="large"/> Prêt à accrocher</div>
+
+                              </div>
                         </div>
-                        <div className="xl:hidden mt-5 pb-96">
-                           <Coments/>
+                        <div className="xl:hidden mt-3 space-y-3 pb-96">
+                        <SocialMedia postImage={post.image}
+                          URLimage={URLimage}
+                          onclick={() => handleClickImage(`${URLimage}/${post.image}`)}
+                          onclick2={() => handleClickImage('../images/large.jpg')}
+                          likeButton={post.likes ? post.likes.length : 0}
+                          post={post.id}
+                          pageUrl={pageUrl}
+                        />
+                          <Coments />
 
                         </div>
-                          <SocialMedia postImage={post.image}
-                                       URLimage={URLimage} 
-                                       onclick={() => handleClickImage(`${URLimage}/${post.image}`)}
-                                       onclick2={() => handleClickImage('../images/large.jpg')}
-                                       />
+                        <div className="max-xl:hidden">
+                        <SocialMedia postImage={post.image}
+                          URLimage={URLimage}
+                          onclick={() => handleClickImage(`${URLimage}/${post.image}`)}
+                          onclick2={() => handleClickImage('../images/large.jpg')}
+                          likeButton={post.likes ? post.likes.length : 0}
+                          post={post.id}
+                          pageUrl={pageUrl}
+                        />
+
+                        </div>
                       </div>
                     </article>
                   </div>
                 </div>
                 {modalOpen && (
-                  <div className="max-sm:hidden flex items-center h-full justify-center absolute bg-opacity-25 bg-sto backdrop-blur-sm z-50 w-full">
+                  <div className="max-sm:hidden  flex items-center h-full justify-center absolute bg-opacity-25 bg-sto backdrop-blur-sm z-50 w-full">
                     <Modal image={`${URLimage}/${post.image}`} image2={<ModalCanape imagecanap={`${URLimage}/${post.image}`} />} closeModal={closeModal} />
                   </div>
                 )}

@@ -29,11 +29,13 @@ import {
     WhatsappShareButton,
     WorkplaceShareButton,
 } from "react-share";
+import LikeButton from "../../common/heart/heart";
+import LikeButtonId from "../../common/heart/likebuttonOeuvreId";
 
-const SocialMedia = ({ postImage, URLimage, onclick, onclick2 }) => {
+const SocialMedia = ({ postImage, URLimage, onclick, onclick2, post, likeButton, pageUrl }) => {
     const [hoverDiv, setHoverDiv] = useState(false)
     const [clickDiv, setClickDiv] = useState(false)
-    const pageUrl=window.location.href
+
     const hovered = () => {
         if (clickDiv === true) {
             setHoverDiv(false)
@@ -47,15 +49,15 @@ const SocialMedia = ({ postImage, URLimage, onclick, onclick2 }) => {
     }
 
     const socialClick = () => {
-        setClickDiv(true)
+        setClickDiv(!clickDiv)
         setHoverDiv(false)
     }
 
     return (
-        <div className=" w-full ">
+        <div className=" w-full flex flex-col max-md:space-y-5 ">
 
 
-            <div className=" mt-5  flex w-full justify-center space-x-3   max-xl:hidden">
+            <div className=" xl:mt-5  flex w-full justify-center space-x-3   ">
                 <div className="h-10 w-10  image overflow-hidden cursor-pointer" onClick={onclick}>
                     <img className="object-cover" src={`${URLimage}/${postImage}`} alt="img-id" />
                 </div>
@@ -65,23 +67,32 @@ const SocialMedia = ({ postImage, URLimage, onclick, onclick2 }) => {
 
 
             </div>
-            <div className=" flex w-full border relative items-end justify-end">
-                <div className={`${hoverDiv ? "visible" : "hidden"} p-1 bg-black text-white border -top-10  absolute`}>
-                    Partager
-                </div>
-                <div className={`${clickDiv ? "visible" : "hidden"} flex p-1  bg-black text-white border -top-10  absolute`}>
+            <div className=" flex w-full  items-end justify-center">
+                <div className=" cursor-pointer flex justify-around w-96  space-x-5 mr-5" >
 
-                    <a href={getFacebookUrl({ url: pageUrl})}>
-                        <FacebookIcon />
+                    <LikeButtonId likesCount={likeButton} oeuvreId={post} />
+                    <div className="relative">
 
-                    </a>
-                    < TwitterShareButton url={pageUrl} >
-                  < XIcon/>
-                    </ TwitterShareButton>
-                </div>
-                <div className="w-1/2  cursor-pointer flex justify-end space-x-5 mr-5" onMouseEnter={hovered} onMouseLeave={hoverleave} onClick={socialClick}>
+                        <div className="relative" onMouseEnter={hovered} onMouseLeave={hoverleave} onClick={socialClick}>
+                            <div className={`${hoverDiv ? "visible" : "hidden"} p-1 bg-black text-white  -top-10  absolute`}>
+                                Partager
+                            </div>
+                            <div className={`${clickDiv ? "visible" : "hidden"} flex p-1 space-x-4 bg-black text-white  -top-10  absolute`}>
 
-                    <ShareIcon />
+                                <a target="_blank" href={getFacebookUrl({ url: pageUrl })}>
+                                    <FacebookIcon />
+
+                                </a>
+                                < TwitterShareButton url={pageUrl} >
+                                    < XIcon />
+                                </ TwitterShareButton>
+                            </div>
+                            <ShareIcon />
+                        </div>
+
+                    </div>
+
+
                 </div>
 
             </div>

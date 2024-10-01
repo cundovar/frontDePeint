@@ -38,7 +38,7 @@ const RoutesPage = () => {
                 </div>
                 <div className=" h-full   m-auto max-lg:ml-1 xl:ml-0 total_total w-full 2xl:h-5/6  relative  2xl:m-auto  overscroll-y-auto " >
                     <Header />
-                    <div className="  h-full relative z-40 m-auto   ">
+                    <div className=" max-xl:flex justify-center h-full relative z-40 m-auto   ">
                         <div className='ml-96'>
 
                 
