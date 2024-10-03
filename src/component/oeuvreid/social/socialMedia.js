@@ -5,6 +5,7 @@ import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { getFacebookUrl } from "@phntms/react-share";
 import { getShareUrl, SocialPlatforms } from "@phntms/react-share";
+import PinterestIcon from "@mui/icons-material/Pinterest";
 import {
     EmailShareButton,
     FacebookShareButton,
@@ -79,13 +80,20 @@ const SocialMedia = ({ postImage, URLimage, onclick, onclick2, post, likeButton,
                             </div>
                             <div className={`${clickDiv ? "visible" : "hidden"} flex p-1 space-x-4 bg-black text-white  -top-10  absolute`}>
 
-                                <a target="_blank" href={getFacebookUrl({ url: pageUrl })}>
-                                    <FacebookIcon />
 
-                                </a>
-                                < TwitterShareButton url={pageUrl} >
-                                    < XIcon />
-                                </ TwitterShareButton>
+                                {/* Bouton Pinterest, utilise l'image */}
+                                <PinterestShareButton url={pageUrl} media={`${URLimage}/${postImage}`} description="Découvrez cette œuvre sur Pinterest !">
+                                    <PinterestIcon />
+                                </PinterestShareButton>
+
+                                <FacebookShareButton url={pageUrl} quote="Découvrez cette œuvre !">
+                                    <FacebookIcon />
+                                </FacebookShareButton>
+
+                                {/* Twitter Share */}
+                                <TwitterShareButton url={pageUrl} title="Découvrez cette œuvre !" hashtags={["art", "oeuvre"]}>
+                                    <XIcon />
+                                </TwitterShareButton>
                             </div>
                             <ShareIcon />
                         </div>

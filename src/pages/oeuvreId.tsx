@@ -42,7 +42,12 @@ const ArticleDetailPage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [modalOpen, setModalOpen] = useState(false);
   const [show, setShow] = useState(false)
-  const pageUrl = window.location.href
+  const [pageUrl, setPageUrl] = useState("");
+
+  useEffect(() => {
+
+    setPageUrl(window.location.href);
+  }, []);  
   const openModal = () => {
     setModalOpen(true);
   };
@@ -110,22 +115,13 @@ const ArticleDetailPage: React.FC = () => {
 
       {isLoading ? (
         <>
-          <Helmet>
-            {/* Balises Open Graph */}
-            {post && (
-              <>
-
-                <meta property="og:title" content={post.name} />
-                <meta property="og:description" content="post.description" />
-                <meta property="og:image" content={post.image} />
-                <meta property="og:url" content={pageUrl} />
-                <meta property="og:type" content="website" />
-
-              </>
-
-
-            )}
-          </Helmet>
+      <Helmet>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={post ? post.name : 'Chargement...'} />
+        <meta property="og:description" content={post ? post.description : 'Chargement de l\'œuvre...'} />
+        <meta property="og:image" content={post ? `${URLimage}/${post.image}` : "/images/accueil/bp.png" } />
+      </Helmet>
 
           <div className="flex justify-center items-center">
 

@@ -1,6 +1,6 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { UrlCategorie, urlBase1 } from "./varaibleFetch";
+
+
+import { urlBase1 } from "./varaibleFetch";
 
 const fetchRelation = async (categoryUrl: string,ScategoryName:any) => {
     const res = await fetch(`${urlBase1}${categoryUrl}`);
